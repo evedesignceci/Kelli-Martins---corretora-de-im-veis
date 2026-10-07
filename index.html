@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template Alto Padrão | eve Design</title>
+    <title>Kelli Martins | Imóveis de Alto Padrão</title>
     
     <!-- Tailwind CSS para Estilização Rápida e Responsiva -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,10 +25,10 @@
                     colors: {
                         brand: {
                             dark: '#1c1917', // Stone 900 - Chumbo elegante
-                            gold: '#c2a679', // Dourado pastel / Champagne
-                            light: '#fafaf9', // Off-white
+                            gold: '#b89762', // Dourado Champagne refinado
+                            light: '#fcfbf9', // Off-white puro e sofisticado
                             gray: '#78716c', // Stone 500
-                            eve: '#d81b60'
+                            accent: '#234e52' // Tom de verde/azul sutil opcional
                         }
                     }
                 }
@@ -38,17 +38,16 @@
 
     <style>
         .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(252, 251, 249, 0.92);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(194, 166, 121, 0.15);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(184, 151, 98, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
         
         .hero-bg {
-            background-image: linear-gradient(135deg, rgba(28, 25, 23, 0.65), rgba(28, 25, 23, 0.25)), url('https://images.unsplash.com/photo-1600607687931-ce8a00407281?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(180deg, rgba(252, 251, 249, 0.2) 0%, rgba(28, 25, 23, 0.75) 100%), url('https://images.unsplash.com/photo-1600607687931-ce8a00407281?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
         }
 
         .img-zoom-hover {
@@ -58,23 +57,27 @@
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .img-zoom-hover:hover img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #fafaf9;
+            background: #fcfbf9;
         }
         ::-webkit-scrollbar-thumb {
-            background: #c2a679;
+            background: #b89762;
             border-radius: 4px;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
         }
     </style>
 </head>
@@ -84,17 +87,17 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
             <a href="#" class="flex flex-col group">
-                <span class="font-serif text-2xl md:text-3xl tracking-wide group-hover:text-brand-gold transition-colors">Seu Nome Aqui</span>
-                <span class="text-[0.65rem] tracking-[0.2em] uppercase font-light text-gray-200 transition-colors" id="creci-text">Imóveis Premium • CRECI 00.000-F</span>
+                <span class="font-serif text-2xl md:text-3xl tracking-wide group-hover:text-brand-gold transition-colors">Kelli Martins</span>
+                <span class="text-[0.65rem] tracking-[0.25em] uppercase font-light text-gray-200 transition-colors" id="creci-text">CRECI 59.289-F</span>
             </a>
 
             <div class="hidden lg:flex items-center space-x-8 text-[0.75rem] font-medium tracking-[0.15em] uppercase">
-                <a href="#sobre" class="hover:text-brand-gold transition-colors pb-1 border-b border-transparent hover:border-brand-gold">Sobre Nós</a>
+                <a href="#sobre" class="hover:text-brand-gold transition-colors pb-1 border-b border-transparent hover:border-brand-gold">Sobre nós</a>
                 <a href="#imoveis" class="hover:text-brand-gold transition-colors pb-1 border-b border-transparent hover:border-brand-gold">Imóveis</a>
-                <a href="#comercializados" class="hover:text-brand-gold transition-colors pb-1 border-b border-transparent hover:border-brand-gold">Comercializados</a>
-                <a href="#novidades" class="hover:text-brand-gold transition-colors pb-1 border-b border-transparent hover:border-brand-gold">Fique por Dentro</a>
-                <a href="#contato" class="px-8 py-3 bg-brand-gold/20 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white transition-all duration-300 rounded-sm shadow-sm" id="nav-cta">
-                    Fale Conosco
+                <a href="#comercializados" class="hover:text-brand-gold transition-colors pb-1 border-b border-transparent hover:border-brand-gold">Imóveis comercializados</a>
+                <a href="#novidades" class="hover:text-brand-gold transition-colors pb-1 border-b border-transparent hover:border-brand-gold">Fique por dentro !</a>
+                <a href="#contato" class="px-7 py-3 bg-brand-gold/20 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white transition-all duration-300 rounded-sm shadow-sm" id="nav-cta">
+                    Fale conosco
                 </a>
             </div>
 
@@ -104,70 +107,66 @@
         </div>
 
         <!-- Menu Mobile -->
-        <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-40 hidden flex-col items-center justify-center space-y-6 text-white uppercase tracking-widest text-base">
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-40 hidden flex-col items-center justify-center space-y-6 text-white uppercase tracking-widest text-sm">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-4xl text-brand-gold hover:rotate-90 transition-transform duration-300">
                 <i class="ph ph-x-light"></i>
             </button>
-            <a href="#sobre" class="mobile-link hover:text-brand-gold transition-colors">Sobre Nós</a>
+            <a href="#sobre" class="mobile-link hover:text-brand-gold transition-colors">Sobre nós</a>
             <a href="#imoveis" class="mobile-link hover:text-brand-gold transition-colors">Imóveis</a>
-            <a href="#comercializados" class="mobile-link hover:text-brand-gold transition-colors text-center">Imóveis Comercializados</a>
-            <a href="#novidades" class="mobile-link hover:text-brand-gold transition-colors">Fique por Dentro</a>
-            <a href="#contato" class="mobile-link text-brand-gold border-b border-brand-gold pb-1 mt-4">Fale Conosco</a>
+            <a href="#comercializados" class="mobile-link hover:text-brand-gold transition-colors text-center">Imóveis comercializados</a>
+            <a href="#novidades" class="mobile-link hover:text-brand-gold transition-colors">Fique por dentro !</a>
+            <a href="#contato" class="mobile-link text-brand-gold border-b border-brand-gold pb-1 mt-4">Fale conosco</a>
         </div>
     </nav>
 
-    <section class="hero-bg min-h-screen flex flex-col justify-center px-6 md:px-12 relative">
-        <div class="max-w-7xl mx-auto w-full opacity-0 animate-[fadeIn_1.5s_ease-out_forwards] pt-20">
-            <p class="text-brand-gold uppercase tracking-[0.4em] text-xs md:text-sm mb-6 font-medium flex items-center gap-4">
-                <span class="w-12 h-[1px] bg-brand-gold"></span>
-                Exclusividade & Alto Padrão em São Paulo
-            </p>
-            <h1 class="text-white font-serif text-4xl md:text-6xl lg:text-7xl leading-tight mb-8 max-w-4xl font-light">
-                O seu próximo lar nas <br/><span class="italic text-brand-gold">localizações mais nobres.</span>
+    <section class="hero-bg min-h-screen flex flex-col justify-end px-6 md:px-12 pb-24 relative">
+        <div class="max-w-7xl mx-auto w-full animate-fade-in z-10">
+            <div class="inline-block px-3 py-1 bg-brand-gold/30 backdrop-blur-md border border-brand-gold/50 text-brand-gold uppercase tracking-[0.3em] text-[0.65rem] mb-6 font-semibold rounded-sm">
+                Itaim Bibi • Jardins • Faria Lima
+            </div>
+            <h1 class="text-white font-serif text-4xl md:text-6xl lg:text-7xl leading-tight mb-6 max-w-4xl font-light">
+                Conectando Você ao <br/><span class="italic text-brand-gold">Imóvel Ideal.</span>
             </h1>
-            <p class="text-gray-200 font-light text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
-                Assessoria imobiliária completa, personalizada e altamente estratégica no Itaim Bibi, Jardins e Faria Lima.
+            <p class="text-gray-200 font-light text-base md:text-lg max-w-2xl mb-10 leading-relaxed">
+                Assessoria imobiliária completa, personalizada e altamente estratégica nas regiões mais nobres e valorizadas de São Paulo.
             </p>
             <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#imoveis" class="bg-brand-gold text-brand-dark px-10 py-4 uppercase tracking-[0.2em] text-xs hover:bg-white transition-all duration-300 w-full sm:w-auto text-center font-semibold shadow-lg hover:shadow-xl">
-                    Explorar Portfólio
+                <a href="#imoveis" class="bg-brand-gold text-brand-dark px-9 py-4 uppercase tracking-[0.2em] text-xs hover:bg-white transition-all duration-300 text-center font-bold shadow-lg">
+                    Ver Oportunidades
                 </a>
             </div>
         </div>
         
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce text-white/70">
-            <span class="text-[0.65rem] tracking-[0.3em] uppercase mb-2">Role para ver</span>
-            <i class="ph ph-arrow-down text-lg text-brand-gold"></i>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce text-white/70">
+            <i class="ph ph-arrow-down text-xl text-brand-gold"></i>
         </div>
     </section>
 
     <section id="sobre" class="py-32 px-6 md:px-12 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <div class="relative">
-                <div class="absolute inset-0 border border-brand-gold translate-x-6 -translate-y-6 z-0 pointer-events-none"></div>
+                <div class="absolute inset-0 border border-brand-gold/40 translate-x-5 -translate-y-5 z-0 pointer-events-none"></div>
                 <!-- Fotografia chique de executiva -->
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Consultora Imobiliária" class="relative z-10 w-full h-[580px] object-cover shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Kelli Martins Corretora" class="relative z-10 w-full h-[540px] object-cover shadow-2xl rounded-sm">
             </div>
 
             <div class="space-y-8">
-                <div class="flex items-center space-x-4">
-                    <span class="text-brand-gold uppercase tracking-[0.3em] text-xs font-semibold">Tradição & Discrição</span>
-                </div>
-                <h2 class="font-serif text-4xl md:text-5xl text-brand-dark leading-tight">
+                <span class="text-brand-gold uppercase tracking-[0.3em] text-xs font-semibold">Tradição & Discrição</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-brand-dark leading-tight">
                     Sua melhor escolha no <br><span class="italic text-brand-gold">mercado imobiliário de luxo.</span>
                 </h2>
-                <div class="text-brand-gray font-light leading-relaxed space-y-6 text-base md:text-lg">
+                <div class="text-brand-gray font-light leading-relaxed space-y-5 text-sm md:text-base">
                     <p>
-                        Com anos de atuação nas regiões mais cobiçadas da capital paulista, ofereço um atendimento altamente consultivo, focado em entender o estilo de vida e os objetivos de cada cliente.
+                        Com mais de duas décadas de atuação, ofereço uma assessoria completa na venda, locação e administração de imóveis residenciais nas áreas mais cobiçadas como Itaim Bibi, Jardins e Faria Lima.
                     </p>
-                    <div class="border-l-2 border-brand-gold pl-6 py-2 bg-brand-light/50">
+                    <div class="border-l-2 border-brand-gold pl-5 py-2 bg-brand-light">
                         <h4 class="text-brand-dark font-semibold mb-1 tracking-wide uppercase text-xs">Para investidores</h4>
-                        <p class="text-sm">Oportunidades seletas com alto potencial de rentabilidade e valorização patrimonial garantida.</p>
+                        <p class="text-xs">Oportunidades seletas com alto potencial de rentabilidade e valorização patrimonial.</p>
                     </div>
-                    <div class="border-l-2 border-brand-gold pl-6 py-2 bg-brand-light/50">
+                    <div class="border-l-2 border-brand-gold pl-5 py-2 bg-brand-light">
                         <h4 class="text-brand-dark font-semibold mb-1 tracking-wide uppercase text-xs">Para famílias</h4>
-                        <p class="text-sm">Imóveis escolhidos rigorosamente a dedo priorizando segurança, conforto e sofisticação.</p>
+                        <p class="text-xs">Imóveis escolhidos a dedo priorizando segurança, conforto, sofisticação e localização.</p>
                     </div>
                 </div>
             </div>
@@ -175,91 +174,91 @@
         </div>
     </section>
 
-    <section id="imoveis" class="py-32 px-6 md:px-12 bg-brand-light">
+    <section id="imoveis" class="py-32 px-6 md:px-12 bg-brand-light border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
             
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
                 <div>
-                    <span class="text-brand-gold uppercase tracking-[0.3em] text-xs font-semibold flex items-center gap-4">
+                    <span class="text-brand-gold uppercase tracking-[0.3em] text-xs font-semibold flex items-center gap-3">
                         <span class="w-8 h-[1px] bg-brand-gold"></span> Seleção Exclusiva
                     </span>
-                    <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mt-4">Portfólio em Destaque</h2>
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mt-3">Catálogo de Imóveis</h2>
                 </div>
-                <span class="text-xs uppercase tracking-widest text-brand-gray mt-4 md:mt-0 font-medium">São Paulo • SP</span>
+                <span class="text-xs uppercase tracking-widest text-brand-gray mt-2 md:mt-0 font-medium">São Paulo • SP</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Imóvel 1 -->
-                <article class="group bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col rounded-sm">
-                    <div class="relative h-72 img-zoom-hover cursor-pointer">
+                <article class="group bg-white border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col rounded-sm">
+                    <div class="relative h-64 img-zoom-hover cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Itaim Bibi" class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-dark text-[0.65rem] font-semibold px-3 py-1.5 uppercase tracking-[0.2em] shadow-sm">Ref: 19</div>
-                        <div class="absolute bottom-4 right-4 bg-brand-dark/90 backdrop-blur-sm text-white text-[0.65rem] px-3 py-1.5 uppercase tracking-[0.2em]">Venda</div>
+                        <div class="absolute top-4 left-4 bg-brand-dark text-white text-[0.65rem] font-medium px-3 py-1 uppercase tracking-[0.2em] shadow-sm">Ref.: 19</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark text-[0.65rem] px-3 py-1 uppercase tracking-[0.2em] font-semibold">Venda</div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow justify-between">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
                         <div>
-                            <h3 class="font-serif text-2xl text-brand-dark mb-2">Itaim Bibi</h3>
-                            <p class="text-brand-gray text-sm font-light mb-6 line-clamp-2">O melhor valor por m² do bairro com vista panorâmica privilegiada.</p>
+                            <h3 class="font-serif text-xl text-brand-dark mb-2">Itaim Bibi</h3>
+                            <p class="text-brand-gray text-xs font-light mb-6 line-clamp-2">O melhor valor por m² do bairro com vista panorâmica privilegiada.</p>
                         </div>
                         <div>
-                            <p class="text-2xl font-serif text-brand-dark mb-6 font-medium text-brand-gold">R$ 3.400.000</p>
-                            <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-brand-dark text-[0.7rem] uppercase tracking-wider font-medium">
+                            <p class="text-xl font-serif text-brand-gold mb-5 font-semibold">R$ 3.400.000,00</p>
+                            <div class="flex items-center justify-between border-t border-gray-100 pt-3 text-brand-dark text-[0.65rem] uppercase tracking-wider font-semibold">
                                 <span>200 m²</span>
                                 <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
-                                <span>3 Dorms</span>
+                                <span>3 dorms</span>
                                 <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
-                                <span>3 Vagas</span>
+                                <span>3 banheiros</span>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Imóvel 2 -->
-                <article class="group bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col rounded-sm">
-                    <div class="relative h-72 img-zoom-hover cursor-pointer">
+                <article class="group bg-white border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col rounded-sm">
+                    <div class="relative h-64 img-zoom-hover cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Jardins" class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-dark text-[0.65rem] font-semibold px-3 py-1.5 uppercase tracking-[0.2em] shadow-sm">Ref: 18</div>
-                        <div class="absolute bottom-4 right-4 bg-brand-dark/90 backdrop-blur-sm text-white text-[0.65rem] px-3 py-1.5 uppercase tracking-[0.2em]">Venda</div>
+                        <div class="absolute top-4 left-4 bg-brand-dark text-white text-[0.65rem] font-medium px-3 py-1 uppercase tracking-[0.2em] shadow-sm">Ref.: 18</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark text-[0.65rem] px-3 py-1 uppercase tracking-[0.2em] font-semibold">Venda</div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow justify-between">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
                         <div>
-                            <h3 class="font-serif text-2xl text-brand-dark mb-2">Jardins</h3>
-                            <p class="text-brand-gray text-sm font-light mb-6 line-clamp-2">Apartamento extremamente iluminado com design sofisticado e aconchegante.</p>
+                            <h3 class="font-serif text-xl text-brand-dark mb-2">Itaim Bibi</h3>
+                            <p class="text-brand-gray text-xs font-light mb-6 line-clamp-2">Tenha uma das melhores vistas do bairro em 122m² com muita luminosidade.</p>
                         </div>
                         <div>
-                            <p class="text-2xl font-serif text-brand-dark mb-6 font-medium text-brand-gold">R$ 2.000.000</p>
-                            <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-brand-dark text-[0.7rem] uppercase tracking-wider font-medium">
+                            <p class="text-xl font-serif text-brand-gold mb-5 font-semibold">R$ 2.000.000,00</p>
+                            <div class="flex items-center justify-between border-t border-gray-100 pt-3 text-brand-dark text-[0.65rem] uppercase tracking-wider font-semibold">
                                 <span>122 m²</span>
                                 <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
-                                <span>3 Dorms</span>
+                                <span>3 dorms</span>
                                 <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
-                                <span>2 Vagas</span>
+                                <span>2 banheiros</span>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Imóvel 3 -->
-                <article class="group bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col rounded-sm">
-                    <div class="relative h-72 img-zoom-hover cursor-pointer">
+                <article class="group bg-white border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col rounded-sm">
+                    <div class="relative h-64 img-zoom-hover cursor-pointer">
                         <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Faria Lima" class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-brand-dark text-[0.65rem] font-semibold px-3 py-1.5 uppercase tracking-[0.2em] shadow-sm">Ref: 17</div>
-                        <div class="absolute bottom-4 right-4 bg-brand-dark/90 backdrop-blur-sm text-white text-[0.65rem] px-3 py-1.5 uppercase tracking-[0.2em]">Venda</div>
+                        <div class="absolute top-4 left-4 bg-brand-dark text-white text-[0.65rem] font-medium px-3 py-1 uppercase tracking-[0.2em] shadow-sm">Ref.: 17</div>
+                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-brand-dark text-[0.65rem] px-3 py-1 uppercase tracking-[0.2em] font-semibold">Venda</div>
                     </div>
-                    <div class="p-8 flex flex-col flex-grow justify-between">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
                         <div>
-                            <h3 class="font-serif text-2xl text-brand-dark mb-2">Faria Lima</h3>
-                            <p class="text-brand-gray text-sm font-light mb-6 line-clamp-2">Condomínio clube com arquitetura moderna, lazer completo e depósito privativo.</p>
+                            <h3 class="font-serif text-xl text-brand-dark mb-2">Itaim Bibi</h3>
+                            <p class="text-brand-gray text-xs font-light mb-6 line-clamp-2">Conforto e praticidade com planta funcional na melhor localização.</p>
                         </div>
                         <div>
-                            <p class="text-2xl font-serif text-brand-dark mb-6 font-medium text-brand-gold">R$ 3.750.000</p>
-                            <div class="flex items-center justify-between border-t border-gray-100 pt-4 text-brand-dark text-[0.7rem] uppercase tracking-wider font-medium">
-                                <span>188 m²</span>
+                            <p class="text-xl font-serif text-brand-gold mb-5 font-semibold">R$ 2.370.000,00</p>
+                            <div class="flex items-center justify-between border-t border-gray-100 pt-3 text-brand-dark text-[0.65rem] uppercase tracking-wider font-semibold">
+                                <span>120 m²</span>
                                 <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
-                                <span>3 Dorms</span>
+                                <span>3 dorms</span>
                                 <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
-                                <span>3 Vagas</span>
+                                <span>4 banheiros</span>
                             </div>
                         </div>
                     </div>
@@ -269,7 +268,7 @@
         </div>
     </section>
 
-    <section id="comercializados" class="py-24 px-6 md:px-12 bg-white">
+    <section id="comercializados" class="py-24 px-6 md:px-12 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <span class="text-brand-gold uppercase tracking-[0.3em] text-xs font-semibold">Histórico de Sucesso</span>
@@ -278,92 +277,87 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="relative group overflow-hidden rounded-sm shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" alt="Vendido" class="w-full h-56 object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-                    <div class="absolute inset-0 bg-brand-dark/50 flex items-center justify-center">
-                        <span class="border border-white/80 text-white px-5 py-2 uppercase tracking-[0.2em] text-xs backdrop-blur-sm font-semibold">Vendido</span>
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" alt="Vendido" class="w-full h-52 object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-brand-dark/40 flex items-center justify-center">
+                        <span class="border border-white text-white px-4 py-1.5 uppercase tracking-[0.2em] text-[0.65rem] backdrop-blur-sm font-semibold">Vendido</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-sm shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Vendido" class="w-full h-56 object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-                    <div class="absolute inset-0 bg-brand-dark/50 flex items-center justify-center">
-                        <span class="border border-white/80 text-white px-5 py-2 uppercase tracking-[0.2em] text-xs backdrop-blur-sm font-semibold">Vendido</span>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Vendido" class="w-full h-52 object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-brand-dark/40 flex items-center justify-center">
+                        <span class="border border-white text-white px-4 py-1.5 uppercase tracking-[0.2em] text-[0.65rem] backdrop-blur-sm font-semibold">Vendido</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-sm shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd64bd5b?auto=format&fit=crop&w=400&q=80" alt="Alugado" class="w-full h-56 object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-                    <div class="absolute inset-0 bg-brand-dark/50 flex items-center justify-center">
-                        <span class="border border-white/80 text-white px-5 py-2 uppercase tracking-[0.2em] text-xs backdrop-blur-sm font-semibold">Alugado</span>
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd64bd5b?auto=format&fit=crop&w=400&q=80" alt="Vendido" class="w-full h-52 object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-brand-dark/40 flex items-center justify-center">
+                        <span class="border border-white text-white px-4 py-1.5 uppercase tracking-[0.2em] text-[0.65rem] backdrop-blur-sm font-semibold">Vendido</span>
                     </div>
                 </div>
                 <div class="relative group overflow-hidden rounded-sm shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=400&q=80" alt="Vendido" class="w-full h-56 object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-                    <div class="absolute inset-0 bg-brand-dark/50 flex items-center justify-center">
-                        <span class="border border-white/80 text-white px-5 py-2 uppercase tracking-[0.2em] text-xs backdrop-blur-sm font-semibold">Vendido</span>
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=400&q=80" alt="Vendido" class="w-full h-52 object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-brand-dark/40 flex items-center justify-center">
+                        <span class="border border-white text-white px-4 py-1.5 uppercase tracking-[0.2em] text-[0.65rem] backdrop-blur-sm font-semibold">Vendido</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="novidades" class="py-24 px-6 md:px-12 bg-brand-light border-t border-gray-200">
+    <section id="novidades" class="py-24 px-6 md:px-12 bg-brand-light border-t border-gray-100">
         <div class="max-w-3xl mx-auto text-center">
-            <i class="ph ph-envelope-open text-4xl text-brand-gold mb-4 inline-block"></i>
-            <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Fique por dentro das oportunidades!</h2>
-            <p class="text-brand-gray mb-8 text-base md:text-lg font-light">Receba em primeira mão lançamentos exclusivos antes de irem para o mercado aberto.</p>
-            <form class="flex flex-col sm:flex-row gap-3 justify-center" onsubmit="event.preventDefault(); alert('Inscrição realizada com sucesso!');">
-                <input type="email" placeholder="Digite seu melhor e-mail" class="px-6 py-4 rounded-sm border border-gray-300 focus:outline-none focus:border-brand-gold w-full sm:w-96 bg-white shadow-sm text-sm" required>
-                <button type="submit" class="bg-brand-dark text-white px-8 py-4 rounded-sm uppercase tracking-widest text-xs hover:bg-brand-gold transition-colors font-medium shadow-md">Assinar</button>
+            <i class="ph ph-envelope-open text-3xl text-brand-gold mb-4 inline-block"></i>
+            <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-3">Fique por dentro !</h2>
+            <p class="text-brand-gray mb-8 text-sm md:text-base font-light">Receba em primeira mão lançamentos exclusivos antes de irem para o mercado aberto.</p>
+            <form class="flex flex-col sm:flex-row gap-3 justify-center" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="Digite seu melhor e-mail" class="px-5 py-3.5 rounded-sm border border-gray-300 focus:outline-none focus:border-brand-gold w-full sm:w-80 bg-white shadow-sm text-xs" required>
+                <button type="submit" class="bg-brand-dark text-white px-7 py-3.5 rounded-sm uppercase tracking-widest text-[0.65rem] hover:bg-brand-gold transition-colors font-bold shadow-md">Assinar</button>
             </form>
         </div>
     </section>
 
-    <footer id="contato" class="bg-brand-dark text-white pt-24 pb-12 border-t-[4px] border-brand-gold relative">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 mb-16 relative z-10">
+    <footer id="contato" class="bg-brand-dark text-white pt-20 pb-10 border-t-2 border-brand-gold relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             <div>
-                <h2 class="font-serif text-3xl md:text-4xl mb-4 leading-tight">Entre em contato e descubra o seu próximo investimento.</h2>
-                <p class="text-gray-400 font-light text-base mb-8 max-w-md">
-                    Atendimento exclusivo sob agendamento. Fale diretamente comigo.
+                <h2 class="font-serif text-2xl md:text-3xl mb-3 leading-tight">Entre em contato e descubra o seu próximo investimento.</h2>
+                <p class="text-gray-400 font-light text-sm mb-6 max-w-md">
+                    Atendimento exclusivo sob agendamento. Fale diretamente com a equipe.
                 </p>
             </div>
 
-            <div class="flex flex-col space-y-6 md:pl-10 md:border-l border-gray-800">
-                <a href="https://wa.me/5511984489760" target="_blank" class="flex items-center space-x-5 group">
-                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-brand-gold group-hover:bg-[#25D366] group-hover:text-white transition-all shadow-md">
-                        <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+            <div class="flex flex-col space-y-5 md:pl-8 md:border-l border-gray-800">
+                <a href="https://api.whatsapp.com/send?phone=+5511984489760" target="_blank" class="flex items-center space-x-4 group">
+                    <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-brand-gold group-hover:bg-[#25D366] group-hover:text-white transition-all shadow-md">
+                        <i class="ph-fill ph-whatsapp-logo text-xl"></i>
                     </div>
                     <div>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">WhatsApp Exclusivo</p>
-                        <p class="text-lg font-light tracking-wide">(11) 98448-9760</p>
+                        <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">WhatsApp Exclusivo</p>
+                        <p class="text-base font-light tracking-wide">(11) 98448-9760</p>
                     </div>
                 </a>
 
-                <a href="mailto:contato@exemplo.com" class="flex items-center space-x-5 group">
-                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all shadow-md">
-                        <i class="ph-fill ph-envelope-simple text-2xl"></i>
+                <a href="mailto:kellimartins0703@gmail.com" class="flex items-center space-x-4 group">
+                    <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all shadow-md">
+                        <i class="ph-fill ph-envelope-simple text-xl"></i>
                     </div>
                     <div>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">E-mail Profissional</p>
-                        <p class="text-lg font-light tracking-wide">contato@imoveis.com</p>
+                        <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-0.5">E-mail Profissional</p>
+                        <p class="text-base font-light tracking-wide">kellimartins0703@gmail.com</p>
                     </div>
                 </a>
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 md:px-12 border-t border-gray-800/80 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 space-y-4 md:space-y-0">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-[0.7rem] text-gray-400 space-y-3 md:space-y-0">
             <p>&copy; 2026 Todos os direitos reservados.</p>
             
             <!-- Assinatura da Designer -->
-            <a href="https://instagram.com/eve.desi_gn" target="_blank" class="flex items-center space-x-2 hover:text-white transition-colors group">
-                <span class="uppercase tracking-widest text-[10px]">Web Design por</span>
-                <span class="font-serif italic text-brand-gold group-hover:text-white transition-colors text-sm font-medium">eve.design</span>
-            </a>
+            <div class="flex items-center space-x-2">
+                <span class="uppercase tracking-widest text-[9px]">Design Exclusivo por</span>
+                <span class="font-serif italic text-brand-gold text-xs font-semibold">eve.design</span>
+            </div>
         </div>
     </footer>
-
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5511984489760" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform z-50">
-        <i class="ph-fill ph-whatsapp-logo"></i>
-    </a>
 
     <script>
         const navbar = document.getElementById('navbar');
