@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelli Martins | Imóveis de Alto Padrão em São Paulo</title>
+    
+    <!-- Tailwind CSS para Estilização Rápida e Responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display (Luxo/Títulos) e Montserrat (Limpeza/Leitura) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons para ícones modernos e finos -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', // Azul escuro / Quase preto
+                            gold: '#b4975a', // Dourado fosco (Luxo)
+                            light: '#fdfbf9', // Off-white quente
+                            gray: '#64748b',
+                            eve: '#d81b60' // Rosa sutil da Eve Design para o rodapé
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animações e ajustes finos */
+        .glass-nav {
+            background: rgba(253, 251, 249, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .hero-bg {
+            /* Usando uma imagem de arquitetura de luxo do Unsplash para o fundo */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .img-zoom-hover {
+            overflow: hidden;
+        }
+        .img-zoom-hover img {
+            transition: transform 0.7s ease;
+        }
+        .img-zoom-hover:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Ocultar barra de rolagem mas manter funcionalidade */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdfbf9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b4975a;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-dark antialiased">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 text-white">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex flex-col">
+                <span class="font-serif text-2xl md:text-3xl tracking-wide">Kelli Martins</span>
+                <span class="text-[0.65rem] tracking-[0.2em] uppercase font-light text-brand-gold">Corretora de Imóveis • Creci 59.289F</span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide uppercase">
+                <a href="#sobre" class="hover:text-brand-gold transition-colors">Sobre</a>
+                <a href="#imoveis" class="hover:text-brand-gold transition-colors">Imóveis</a>
+                <a href="#contato" class="px-6 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white transition-all rounded-full">Fale Conosco</a>
+            </div>
+
+            <!-- Botão Menu Mobile -->
+            <button id="mobile-menu-btn" class="md:hidden text-3xl focus:outline-none">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile (Oculto por padrão) -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-40 hidden flex-col items-center justify-center space-y-8 text-white uppercase tracking-widest text-lg">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-4xl text-brand-gold">
+                <i class="ph ph-x-light"></i>
+            </button>
+            <a href="#sobre" class="mobile-link hover:text-brand-gold transition-colors">Sobre Nós</a>
+            <a href="#imoveis" class="mobile-link hover:text-brand-gold transition-colors">Catálogo de Imóveis</a>
+            <a href="#contato" class="mobile-link text-brand-gold border-b border-brand-gold pb-1">Fale Conosco</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto opacity-0 animate-[fadeIn_1.5s_ease-out_forwards]">
+            <p class="text-brand-gold uppercase tracking-[0.3em] text-sm mb-6 font-semibold">Exclusividade & Alto Padrão</p>
+            <h1 class="text-white font-serif text-4xl md:text-6xl lg:text-7xl leading-tight mb-8">
+                Conectando você ao imóvel ideal no <span class="italic text-brand-gold">Itaim Bibi e Jardins.</span>
+            </h1>
+            <p class="text-gray-200 font-light text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                Uma assessoria completa, personalizada e altamente estratégica na venda de imóveis nas regiões mais nobres de São Paulo.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#imoveis" class="bg-brand-gold text-white px-8 py-4 rounded-none uppercase tracking-widest text-sm hover:bg-opacity-90 transition-all w-full sm:w-auto">
+                    Explorar Imóveis
+                </a>
+                <a href="https://wa.me/5511984489760" target="_blank" class="flex items-center space-x-2 text-white border-b border-white pb-1 hover:text-brand-gold hover:border-brand-gold transition-all uppercase tracking-widest text-sm">
+                    <i class="ph ph-whatsapp text-xl"></i>
+                    <span>Atendimento Vip</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="py-24 px-6 md:px-12 bg-brand-light">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="space-y-8">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-[1px] bg-brand-gold"></div>
+                    <span class="text-brand-gold uppercase tracking-[0.2em] text-xs font-bold">A Especialista</span>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl text-brand-dark leading-tight">
+                    Experiência de duas décadas no <span class="italic text-brand-gold">mercado paulista.</span>
+                </h2>
+                <div class="text-brand-gray font-light leading-relaxed space-y-4">
+                    <p>
+                        Kelli construiu uma reputação sólida com base em atendimento humano, dedicação total ao cliente e profundo conhecimento de mercado na Zona Sul de São Paulo, focando em Itaim Bibi, Jardins e Faria Lima.
+                    </p>
+                    <p>
+                        <strong class="text-brand-dark font-medium">Para investidores:</strong> Melhores oportunidades em imóveis com alto potencial de retorno, rentabilidade e valorização a longo prazo.
+                    </p>
+                    <p>
+                        <strong class="text-brand-dark font-medium">Para famílias:</strong> Entendimento profundo de que o lar ideal vai muito além de metragem. Foco total em trazer conforto, segurança e praticidade para sua família.
+                    </p>
+                </div>
+                <a href="#contato" class="inline-flex items-center space-x-2 text-brand-dark font-medium hover:text-brand-gold transition-colors mt-4">
+                    <span>Agendar uma consultoria</span>
+                    <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Imagem da Kelli -->
+            <div class="relative">
+                <div class="absolute inset-0 bg-brand-gold translate-x-4 translate-y-4 rounded-sm"></div>
+                <!-- Substituir src pela foto real dela depois -->
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kelli Martins" class="relative z-10 w-full h-[600px] object-cover rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Catálogo de Imóveis -->
+    <section id="imoveis" class="py-24 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center mb-16">
+                <span class="text-brand-gold uppercase tracking-[0.2em] text-xs font-bold">Oportunidades</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mt-4">Resultados da Busca</h2>
+            </div>
+
+            <!-- Grid de Imóveis -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Imóvel 1 -->
+                <article class="group cursor-pointer bg-brand-light border border-gray-100 rounded-sm overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col">
+                    <div class="relative h-72 img-zoom-hover">
+                        <!-- Imagem placeholder de luxo -->
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vista Itaim Bibi" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">
+                            Ref: 19
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-brand-dark text-white text-xs px-3 py-1 uppercase">
+                            Venda
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-serif text-xl text-brand-dark mb-2 line-clamp-2">ITAIM BIBI - O melhor valor por m² do bairro, vista espetacular.</h3>
+                        <p class="text-3xl font-light text-brand-gold mb-6 mt-auto">R$ 3.400.000</p>
+                        
+                        <div class="flex items-center justify-between border-t border-gray-200 pt-4 text-brand-gray text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-ruler text-lg"></i>
+                                <span>200 m²</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-bed text-lg"></i>
+                                <span>3 dorms</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-car text-lg"></i>
+                                <span>3 vagas</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Imóvel 2 -->
+                <article class="group cursor-pointer bg-brand-light border border-gray-100 rounded-sm overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col">
+                    <div class="relative h-72 img-zoom-hover">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apartamento Jardins" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">
+                            Ref: 18
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-brand-dark text-white text-xs px-3 py-1 uppercase">
+                            Venda
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-serif text-xl text-brand-dark mb-2 line-clamp-2">JARDINS - Tenha uma das MELHORES vistas da região.</h3>
+                        <p class="text-3xl font-light text-brand-gold mb-6 mt-auto">R$ 2.850.000</p>
+                        
+                        <div class="flex items-center justify-between border-t border-gray-200 pt-4 text-brand-gray text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-ruler text-lg"></i>
+                                <span>122 m²</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-bed text-lg"></i>
+                                <span>2 dorms</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-car text-lg"></i>
+                                <span>2 vagas</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Imóvel 3 (Exemplo Adicional) -->
+                <article class="group cursor-pointer bg-brand-light border border-gray-100 rounded-sm overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col">
+                    <div class="relative h-72 img-zoom-hover">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Apartamento Faria Lima" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-white text-xs font-bold px-3 py-1 uppercase tracking-wider">
+                            Ref: 24
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-brand-dark text-white text-xs px-3 py-1 uppercase">
+                            Venda
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-serif text-xl text-brand-dark mb-2 line-clamp-2">FARIA LIMA - Cobertura duplex com automação completa.</h3>
+                        <p class="text-3xl font-light text-brand-gold mb-6 mt-auto">R$ 5.200.000</p>
+                        
+                        <div class="flex items-center justify-between border-t border-gray-200 pt-4 text-brand-gray text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-ruler text-lg"></i>
+                                <span>280 m²</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-bed text-lg"></i>
+                                <span>4 dorms</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="ph ph-car text-lg"></i>
+                                <span>4 vagas</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="#" class="inline-block border border-brand-dark text-brand-dark px-10 py-4 uppercase tracking-widest text-sm hover:bg-brand-dark hover:text-white transition-all">
+                    Carregar Mais Imóveis
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA & Footer -->
+    <footer id="contato" class="bg-brand-dark text-white pt-24 pb-8 border-t-[6px] border-brand-gold relative overflow-hidden">
+        
+        <!-- Background Element sutil -->
+        <i class="ph-fill ph-buildings absolute -right-20 -bottom-20 text-[300px] text-white opacity-[0.02]"></i>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 relative z-10">
+            
+            <!-- Texto Contato -->
+            <div>
+                <h2 class="font-serif text-4xl mb-6">Pronto para encontrar o <span class="italic text-brand-gold">imóvel perfeito?</span></h2>
+                <p class="text-gray-400 font-light text-lg mb-8 max-w-md">
+                    Entre em contato agora mesmo e descubra como encontrar o investimento ou lar ideal pode ser mais simples, seguro e elegante do que você imagina.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center text-xl hover:bg-brand-gold hover:border-brand-gold transition-all">
+                        <i class="ph ph-instagram-logo"></i>
+                    </a>
+                    <a href="https://wa.me/5511984489760" target="_blank" class="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center text-xl hover:bg-[#25D366] hover:border-[#25D366] transition-all">
+                        <i class="ph ph-whatsapp-logo"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contatos Diretos -->
+            <div class="flex flex-col justify-center space-y-8">
+                
+                <a href="https://wa.me/5511984489760" target="_blank" class="flex items-center space-x-6 group">
+                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all">
+                        <i class="ph ph-whatsapp-logo text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">WhatsApp Direto</p>
+                        <p class="text-xl font-light">11 98448-9760</p>
+                    </div>
+                </a>
+
+                <a href="tel:+5511984489760" class="flex items-center space-x-6 group">
+                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all">
+                        <i class="ph ph-phone-call text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Ligue Agora</p>
+                        <p class="text-xl font-light">11 98448-9760</p>
+                    </div>
+                </a>
+
+                <div class="flex items-center space-x-6">
+                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center text-brand-gold">
+                        <i class="ph ph-user text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Atendimento</p>
+                        <p class="text-xl font-light">Fale com um Corretor</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Copyright & Assinatura da Designer -->
+        <div class="max-w-7xl mx-auto px-6 md:px-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-light text-gray-500 space-y-4 md:space-y-0">
+            <p>&copy; 2026 Kelli Martins Imobiliária. Todos os direitos reservados.</p>
+            
+            <!-- Assinatura da Eve Design (A isca digital) -->
+            <a href="https://instagram.com/eve.desi_gn" target="_blank" class="flex items-center space-x-2 hover:text-white transition-colors group">
+                <span>Design Exclusivo por</span>
+                <span class="font-serif italic text-brand-eve group-hover:text-pink-400 transition-colors text-base tracking-wide">eve.design</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Botão Fixo WhatsApp -->
+    <a href="https://wa.me/5511984489760" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 transition-transform z-50">
+        <i class="ph ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Scripts de Interatividade -->
+    <script>
+        // Efeito de rolagem na Navbar (Mudar de Transparente para Sólido)
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-nav', 'text-brand-dark');
+                navbar.classList.remove('text-white', 'py-4');
+                navbar.classList.add('py-2');
+                // Altera cor dos botões internos
+                document.querySelectorAll('#navbar a.border').forEach(btn => {
+                    btn.classList.add('border-brand-dark', 'text-brand-dark');
+                    btn.classList.remove('border-brand-gold', 'text-brand-gold');
+                });
+            } else {
+                navbar.classList.remove('glass-nav', 'text-brand-dark');
+                navbar.classList.add('text-white', 'py-4');
+                navbar.classList.remove('py-2');
+                // Retorna cor original
+                document.querySelectorAll('#navbar a.border').forEach(btn => {
+                    btn.classList.remove('border-brand-dark', 'text-brand-dark');
+                    btn.classList.add('border-brand-gold', 'text-brand-gold');
+                });
+            }
+        });
+
+        // Menu Mobile (Abrir e Fechar)
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Evita rolar a página no fundo
+        });
+
+        const fecharMenu = () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeMenuBtn.addEventListener('click', fecharMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', fecharMenu));
+    </script>
+</body>
+</html>
