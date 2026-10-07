@@ -55,7 +55,6 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .card-luxo:hover {
-            transform: translateY(-5px);
             box-shadow: 0 20px 35px -12px rgba(11, 19, 26, 0.1);
             border-color: #C5A850;
         }
@@ -65,14 +64,11 @@
             color: #FFFFFF;
             border-radius: 9999px;
             font-weight: 600;
-            letter-spacing: 0.025em;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(11, 19, 26, 0.15);
         }
         .btn-luxo:hover {
             background-color: #C5A850;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(197, 168, 80, 0.25);
         }
 
         .btn-zap-card {
@@ -81,12 +77,8 @@
             border-radius: 1rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
-        .btn-zap-card:hover {
-            background-color: #20ba5a;
-            transform: translateY(-1px);
-        }
+        .btn-zap-card:hover { background-color: #20ba5a; }
 
         .btn-compartilhar {
             background-color: #F3F4F6;
@@ -94,10 +86,7 @@
             border-radius: 1rem;
             transition: all 0.3s ease;
         }
-        .btn-compartilhar:hover {
-            background-color: #E5E7EB;
-            color: #1F2937;
-        }
+        .btn-compartilhar:hover { background-color: #E5E7EB; color: #1F2937; }
 
         .input-luxo {
             background: #F9FAFB;
@@ -111,6 +100,18 @@
             border-color: #C5A850;
             outline: none;
             box-shadow: 0 0 0 4px rgba(197, 168, 80, 0.12);
+        }
+
+        /* Animação suave para abrir/fechar detalhes */
+        .detalhes-imovel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+        .detalhes-imovel.ativo {
+            max-height: 400px;
+            opacity: 1;
         }
 
         .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -155,37 +156,30 @@
             <div class="absolute inset-0 bg-gradient-to-t from-gray-950/85 via-gray-900/40 to-black/30"></div>
         </div>
 
-        <!-- Caixa de Busca Refinada e Limpa -->
         <div class="relative z-10 max-w-2xl w-full mx-4 bg-white/95 backdrop-blur-md p-6 sm:p-10 rounded-[2.5rem] shadow-2xl border border-white/80">
             <span class="text-[10px] font-bold uppercase tracking-widest text-km-dourado block text-center mb-1">Busca Exclusiva</span>
             <h2 class="text-xl sm:text-2xl text-center font-serif font-bold text-gray-900 mb-6">Encontre seu imóvel</h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
-                <div class="sm:col-span-5">
-                    <input type="text" placeholder="Código (Ex: 19)" class="w-full h-12 px-4 input-luxo text-xs font-semibold" />
-                </div>
-                <div class="sm:col-span-4">
-                    <select class="w-full h-12 px-3 input-luxo text-xs font-semibold cursor-pointer bg-white">
-                        <option value="">Negócio</option>
-                        <option value="venda">Venda</option>
-                        <option value="locacao">Locação</option>
-                    </select>
-                </div>
-                <div class="sm:col-span-3">
-                    <button class="w-full h-12 btn-luxo text-xs uppercase tracking-wider flex items-center justify-center gap-2">
-                        <span>Buscar</span> <i class="fas fa-search text-[10px] text-km-dourado"></i>
-                    </button>
-                </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input type="text" placeholder="Busque pelo código" class="w-full h-13 px-5 input-luxo text-xs font-semibold" />
+                <select class="w-full h-13 px-5 input-luxo text-xs font-semibold cursor-pointer bg-white">
+                    <option value="">Tipo de imóvel:</option>
+                    <option value="venda">Venda</option>
+                    <option value="locacao">Locação</option>
+                </select>
+                <button class="w-full sm:w-40 h-13 btn-luxo text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+                    <span>Buscar</span> <i class="fas fa-search text-[10px] text-km-dourado"></i>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- VITRINE DE IMÓVEIS (CARROSSEL + METRICAS)  -->
+    <!-- VITRINE DE IMÓVEIS COM GAVETA EXPANSÍVEL   -->
     <!-- ========================================== -->
     <section id="imoveis" class="py-16 px-4 sm:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-12">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-km-dourado bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-100 inline-block mb-3">Portfólio Selecionado</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-km-dourado bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-100 inline-block mb-3">Portfólio Exclusivo</span>
             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Imóveis em destaque</h2>
             <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold">Itaim Bibi • Vila Nova Conceição • São Paulo</p>
         </div>
@@ -195,8 +189,8 @@
             <!-- CARD 1 (Ref 19) -->
             <div class="card-luxo overflow-hidden flex flex-col justify-between group">
                 <div>
-                    <!-- Carrossel de Fotos Passável por Toque/Mouse -->
-                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden cursor-grab active:cursor-grabbing select-none"
+                    <!-- Carrossel com Setas e Swipe -->
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden select-none"
                          style="touch-action: pan-y;"
                          onmousedown="iniciarArrasto(event, 'carro_19')" onmousemove="moverArrasto(event, 'carro_19')" onmouseup="fimArrasto(event, 'carro_19')" onmouseleave="fimArrasto(event, 'carro_19')"
                          ontouchstart="iniciarArrasto(event, 'carro_19')" ontouchmove="moverArrasto(event, 'carro_19')" ontouchend="fimArrasto(event, 'carro_19')">
@@ -206,9 +200,12 @@
                             <div class="min-w-full w-full h-full relative"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"></div>
                         </div>
 
-                        <span class="absolute bottom-4 left-4 bg-km-dourado text-white text-[10px] font-bold px-3 py-1.5 rounded-xl uppercase tracking-wider shadow z-20 pointer-events-none">Ref.: 19</span>
+                        <!-- Setas Laterais de Navegação -->
+                        <button onclick="mudarSlideDireto('carro_19', -1, event)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition z-30 backdrop-blur-sm"><i class="fas fa-chevron-left text-xs"></i></button>
+                        <button onclick="mudarSlideDireto('carro_19', 1, event)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition z-30 backdrop-blur-sm"><i class="fas fa-chevron-right text-xs"></i></button>
+
+                        <span class="absolute bottom-4 left-4 bg-km-dourado text-white text-[10px] font-bold px-3.5 py-1.5 rounded-xl uppercase tracking-wider shadow z-20 pointer-events-none">Ref.: 19</span>
                         
-                        <!-- Bolinhas Indicadoras do Carrossel -->
                         <div class="absolute bottom-3 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
                             <span id="dot_carro_19_0" class="w-1.5 h-1.5 rounded-full bg-white scale-125 shadow transition-all"></span>
                             <span id="dot_carro_19_1" class="w-1.5 h-1.5 rounded-full bg-white/50 shadow transition-all"></span>
@@ -226,16 +223,22 @@
                             </div>
                         </div>
 
-                        <!-- Métricas Detalhadas -->
-                        <div class="grid grid-cols-3 gap-2 text-center text-[11px] text-gray-700 font-bold py-3 mt-4 bg-gray-50 rounded-2xl border border-gray-100">
-                            <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 200 m²</div>
-                            <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 3 dorms</div>
-                            <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 3 banh.</div>
+                        <!-- Botão para Abrir Mais Informações -->
+                        <button onclick="toggleDetalhes('detalhes_19', this)" class="w-full mt-4 bg-gray-50 hover:bg-gray-100 text-gray-700 font-bold text-xs py-3 rounded-xl border border-gray-200 flex items-center justify-center gap-2 transition">
+                            <span>Ver Mais Informações</span> <i class="fas fa-chevron-down text-[10px] text-km-dourado transition-transform duration-300"></i>
+                        </button>
+
+                        <!-- Sessão Expansível de Detalhes -->
+                        <div id="detalhes_19" class="detalhes-imovel">
+                            <div class="grid grid-cols-3 gap-2 text-center text-[11px] text-gray-700 font-bold py-3 mt-3 bg-gray-50 rounded-2xl border border-gray-100">
+                                <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 200 m²</div>
+                                <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 3 dorms</div>
+                                <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 3 banh.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Ações Individuais: WhatsApp Direto + Copiar Link -->
                 <div class="px-6 pb-6 pt-0 flex gap-2">
                     <a href="https://wa.me/5511989656941?text=Olá! Gostaria de mais informações sobre o imóvel Ref: 19" target="_blank" class="btn-zap-card flex-1 py-3 text-xs flex items-center justify-center gap-1.5">
                         <i class="fab fa-whatsapp text-base"><span>WhatsApp</span></i>
@@ -249,7 +252,7 @@
             <!-- CARD 2 (Ref 18) -->
             <div class="card-luxo overflow-hidden flex flex-col justify-between group">
                 <div>
-                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden cursor-grab active:cursor-grabbing select-none"
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden select-none"
                          style="touch-action: pan-y;"
                          onmousedown="iniciarArrasto(event, 'carro_18')" onmousemove="moverArrasto(event, 'carro_18')" onmouseup="fimArrasto(event, 'carro_18')" onmouseleave="fimArrasto(event, 'carro_18')"
                          ontouchstart="iniciarArrasto(event, 'carro_18')" ontouchmove="moverArrasto(event, 'carro_18')" ontouchend="fimArrasto(event, 'carro_18')">
@@ -259,7 +262,10 @@
                             <div class="min-w-full w-full h-full relative"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"></div>
                         </div>
 
-                        <span class="absolute bottom-4 left-4 bg-km-dourado text-white text-[10px] font-bold px-3 py-1.5 rounded-xl uppercase tracking-wider shadow z-20 pointer-events-none">Ref.: 18</span>
+                        <button onclick="mudarSlideDireto('carro_18', -1, event)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition z-30 backdrop-blur-sm"><i class="fas fa-chevron-left text-xs"></i></button>
+                        <button onclick="mudarSlideDireto('carro_18', 1, event)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition z-30 backdrop-blur-sm"><i class="fas fa-chevron-right text-xs"></i></button>
+
+                        <span class="absolute bottom-4 left-4 bg-km-dourado text-white text-[10px] font-bold px-3.5 py-1.5 rounded-xl uppercase tracking-wider shadow z-20 pointer-events-none">Ref.: 18</span>
                         
                         <div class="absolute bottom-3 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
                             <span id="dot_carro_18_0" class="w-1.5 h-1.5 rounded-full bg-white scale-125 shadow transition-all"></span>
@@ -278,10 +284,16 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-2 text-center text-[11px] text-gray-700 font-bold py-3 mt-4 bg-gray-50 rounded-2xl border border-gray-100">
-                            <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 122 m²</div>
-                            <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 3 dorms</div>
-                            <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 2 vagas</div>
+                        <button onclick="toggleDetalhes('detalhes_18', this)" class="w-full mt-4 bg-gray-50 hover:bg-gray-100 text-gray-700 font-bold text-xs py-3 rounded-xl border border-gray-200 flex items-center justify-center gap-2 transition">
+                            <span>Ver Mais Informações</span> <i class="fas fa-chevron-down text-[10px] text-km-dourado transition-transform duration-300"></i>
+                        </button>
+
+                        <div id="detalhes_18" class="detalhes-imovel">
+                            <div class="grid grid-cols-3 gap-2 text-center text-[11px] text-gray-700 font-bold py-3 mt-3 bg-gray-50 rounded-2xl border border-gray-100">
+                                <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 122 m²</div>
+                                <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 3 dorms</div>
+                                <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 2 vagas</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -299,7 +311,7 @@
             <!-- CARD 3 (Ref 17) -->
             <div class="card-luxo overflow-hidden flex flex-col justify-between group">
                 <div>
-                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden cursor-grab active:cursor-grabbing select-none"
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden select-none"
                          style="touch-action: pan-y;"
                          onmousedown="iniciarArrasto(event, 'carro_17')" onmousemove="moverArrasto(event, 'carro_17')" onmouseup="fimArrasto(event, 'carro_17')" onmouseleave="fimArrasto(event, 'carro_17')"
                          ontouchstart="iniciarArrasto(event, 'carro_17')" ontouchmove="moverArrasto(event, 'carro_17')" ontouchend="fimArrasto(event, 'carro_17')">
@@ -309,7 +321,10 @@
                             <div class="min-w-full w-full h-full relative"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"></div>
                         </div>
 
-                        <span class="absolute bottom-4 left-4 bg-km-dourado text-white text-[10px] font-bold px-3 py-1.5 rounded-xl uppercase tracking-wider shadow z-20 pointer-events-none">Ref.: 17</span>
+                        <button onclick="mudarSlideDireto('carro_17', -1, event)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition z-30 backdrop-blur-sm"><i class="fas fa-chevron-left text-xs"></i></button>
+                        <button onclick="mudarSlideDireto('carro_17', 1, event)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center transition z-30 backdrop-blur-sm"><i class="fas fa-chevron-right text-xs"></i></button>
+
+                        <span class="absolute bottom-4 left-4 bg-km-dourado text-white text-[10px] font-bold px-3.5 py-1.5 rounded-xl uppercase tracking-wider shadow z-20 pointer-events-none">Ref.: 17</span>
                         
                         <div class="absolute bottom-3 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
                             <span id="dot_carro_17_0" class="w-1.5 h-1.5 rounded-full bg-white scale-125 shadow transition-all"></span>
@@ -328,10 +343,16 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-2 text-center text-[11px] text-gray-700 font-bold py-3 mt-4 bg-gray-50 rounded-2xl border border-gray-100">
-                            <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 120 m²</div>
-                            <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 3 dorms</div>
-                            <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 4 banh.</div>
+                        <button onclick="toggleDetalhes('detalhes_17', this)" class="w-full mt-4 bg-gray-50 hover:bg-gray-100 text-gray-700 font-bold text-xs py-3 rounded-xl border border-gray-200 flex items-center justify-center gap-2 transition">
+                            <span>Ver Mais Informações</span> <i class="fas fa-chevron-down text-[10px] text-km-dourado transition-transform duration-300"></i>
+                        </button>
+
+                        <div id="detalhes_17" class="detalhes-imovel">
+                            <div class="grid grid-cols-3 gap-2 text-center text-[11px] text-gray-700 font-bold py-3 mt-3 bg-gray-50 rounded-2xl border border-gray-100">
+                                <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 120 m²</div>
+                                <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 3 dorms</div>
+                                <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 4 banh.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -414,7 +435,6 @@
             <i class="fas fa-building text-lg mb-1"></i>
             <span class="text-[9px] font-bold uppercase tracking-widest">Imóveis</span>
         </a>
-        <!-- Botão WhatsApp Central Destacado -->
         <a href="https://wa.me/5511989656941?text=Olá! Vim pelo site e gostaria de atendimento." target="_blank" class="flex flex-col items-center text-gray-900 w-16 relative">
             <div class="bg-km-verdeZap text-white w-14 h-14 rounded-full flex items-center justify-center absolute bottom-4 shadow-xl border-[3px] border-white transition-transform active:scale-95">
                 <i class="fab fa-whatsapp text-2xl"></i>
@@ -427,11 +447,40 @@
         </a>
     </div>
 
-    <!-- SCRIPT DE SWIPE E COPIAR LINK -->
+    <!-- SCRIPTS DE INTERATIVIDADE -->
     <script>
         function copiarLink(nomeImovel) {
             navigator.clipboard.writeText(window.location.href);
             alert(`Link do imóvel (${nomeImovel}) copiado com sucesso! Pode colar no WhatsApp.`);
+        }
+
+        function toggleDetalhes(idElemento, botao) {
+            const painel = document.getElementById(idElemento);
+            const icone = botao.querySelector('.fa-chevron-down');
+            
+            painel.classList.toggle('ativo');
+            icone.style.transform = painel.classList.contains('ativo') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function mudarSlideDireto(idTrack, direcao, event) {
+            if(event) { event.preventDefault(); event.stopPropagation(); }
+            const el = document.getElementById(idTrack);
+            if(!el) return;
+            let current = parseInt(el.getAttribute('data-slide') || '0');
+            let total = parseInt(el.getAttribute('data-total') || '1');
+            let next = current + direcao;
+            if(next < 0) next = 0;
+            if(next >= total) next = total - 1;
+
+            el.setAttribute('data-slide', next);
+            el.style.transform = `translateX(-${next * 100}%)`;
+
+            // Atualiza as bolinhas
+            const paiCard = el.closest('.card-luxo');
+            for(let i=0; i<total; i++) {
+                let dot = paiCard.querySelector(`#dot_${idTrack}_${i}`);
+                if(dot) dot.className = `w-1.5 h-1.5 rounded-full ${i === next ? 'bg-white scale-125 shadow' : 'bg-white/50 shadow'} transition-all`;
+            }
         }
 
         window.touchState = {};
@@ -473,8 +522,9 @@
             state.element.style.transform = `translateX(-${state.slideAtual * 100}%)`;
             state.element.setAttribute('data-slide', state.slideAtual);
             
+            const paiCard = state.element.closest('.card-luxo');
             for(let i=0; i<state.total; i++) {
-                let dot = document.getElementById(`dot_${id}_${i}`);
+                let dot = paiCard.querySelector(`#dot_${id}_${i}`);
                 if(dot) dot.className = `w-1.5 h-1.5 rounded-full ${i === state.slideAtual ? 'bg-white scale-125 shadow' : 'bg-white/50 shadow'} transition-all`;
             }
             setTimeout(() => { delete window.touchState[id]; }, 100);
