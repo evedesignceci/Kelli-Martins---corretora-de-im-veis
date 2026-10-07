@@ -21,12 +21,9 @@
                 extend: {
                     colors: {
                         km: {
-                            dourado: '#B89B72', 
-                            douradoHover: '#9A7F5A', 
-                            petroleo: '#0A252A', 
-                            petroleoClaro: '#123940',
-                            grafite: '#2C3E50',
-                            fundo: '#F8F9FA',
+                            douradoOriginal: '#C5A850', // Mantendo o tom dourado/amarelado original do site dela
+                            petroleoEscuro: '#0B131A', // Rodapé escuro original
+                            fundoCinza: '#F4F5F7',
                             verdeZap: '#15803D'
                         }
                     },
@@ -41,215 +38,180 @@
 
     <style>
         * { -webkit-tap-highlight-color: transparent; }
-        body { background-color: #F8F9FA; color: #0A252A; overflow-x: hidden; }
+        body { background-color: #F4F5F7; color: #1F2937; overflow-x: hidden; }
         
-        .vidro-fosco {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 15px 35px -5px rgba(10, 37, 42, 0.08);
-        }
-        
-        .input-vidro {
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid #E5E7EB;
-            color: #0A252A;
-            border-radius: 9999px;
-            transition: all 0.3s;
-        }
-        .input-vidro:focus {
+        .card-imovel {
             background: #FFFFFF;
-            border-color: #B89B72;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(184, 155, 114, 0.15);
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem;
+            transition: all 0.3s ease;
         }
-        
+        .card-imovel:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0,0,0,0.08);
+            border-color: #C5A850;
+        }
+
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         img { user-select: none; -webkit-user-drag: none; object-fit: cover; }
         
-        /* Espaçamento para o menu mobile inferior */
         .pb-mobile-nav { padding-bottom: 90px; }
         @media (min-width: 1024px) { .pb-mobile-nav { padding-bottom: 0; } }
     </style>
 </head>
-<body class="antialiased selection:bg-km-dourado selection:text-white pb-mobile-nav relative">
-
-    <!-- BANNER DE DEMONSTRAÇÃO (Para você explicar para ela que é o novo layout) -->
-    <div class="bg-km-petroleo text-white text-[11px] py-2 px-4 text-center font-bold tracking-wider uppercase flex items-center justify-center gap-2">
-        <i class="fas fa-sparkles text-km-dourado"></i> Proposta de Redesign Exclusiva — eve Design <i class="fas fa-sparkles text-km-dourado"></i>
-    </div>
+<body class="antialiased selection:bg-km-douradoOriginal selection:text-white pb-mobile-nav relative">
 
     <!-- ========================================== -->
-    <!-- NAVBAR PRINCIPAL (DESKTOP)                 -->
+    <!-- TOPO / HEADER ORIGINAL DELA (REFINADO)     -->
     <!-- ========================================== -->
-    <div class="hidden lg:block sticky top-4 z-50 px-8 w-full max-w-7xl mx-auto">
-        <nav class="vidro-fosco rounded-full py-2.5 px-8 flex justify-between items-center shadow-lg">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-km-petroleo flex items-center justify-center font-serif font-bold text-white text-sm shadow">
-                    KM
-                </div>
-                <div>
-                    <span class="font-serif text-xl font-bold text-km-petroleo tracking-tight block leading-none">Kelli Martins</span>
-                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mt-0.5">CRECI 59.289F</span>
-                </div>
-            </a>
+    <header class="bg-white border-b border-gray-200/80 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex justify-between items-center">
             
-            <div class="flex items-center space-x-7 text-xs uppercase tracking-wider font-bold text-km-petroleo">
-                <a href="#imoveis" class="hover:text-km-dourado transition py-2">Imóveis</a>
-                <a href="#sobre" class="hover:text-km-dourado transition py-2">Sobre nós</a>
-                <a href="#servicos" class="hover:text-km-dourado transition py-2">Serviços</a>
-                <a href="#contato" class="hover:text-km-dourado transition py-2">Contato</a>
-                <a href="https://wa.me/5511989656941" target="_blank" class="bg-km-petroleo hover:bg-km-dourado text-white px-6 py-3 rounded-full shadow transition flex items-center gap-2 ml-2">
-                    <i class="fab fa-whatsapp text-base"></i> Falar com a Kelli
+            <!-- Logo e CRECI idênticos ao site original -->
+            <div class="flex items-center gap-6">
+                <a href="#" class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold tracking-tight text-gray-900">Kelli Martins</span>
+                    <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Corretora de Imóveis</span>
                 </a>
+                <span class="hidden sm:inline-block border-l border-gray-300 pl-6 text-xs text-gray-500 font-semibold tracking-wider">CRECI 59.289F</span>
             </div>
-        </nav>
-    </div>
 
-    <!-- NAVBAR MOBILE TOPO -->
-    <div class="lg:hidden bg-white/95 backdrop-blur px-6 py-3.5 flex justify-between items-center sticky top-0 z-40 border-b border-gray-200 shadow-sm">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-km-petroleo flex items-center justify-center text-white font-serif text-xs font-bold">KM</div>
-            <span class="font-serif text-base font-bold text-km-petroleo">Kelli Martins</span>
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider text-gray-700">
+                <a href="#sobre" class="hover:text-km-douradoOriginal transition">Sobre nós</a>
+                <a href="#imoveis" class="hover:text-km-douradoOriginal transition">Imóveis</a>
+                <a href="#" class="text-gray-400 cursor-not-allowed">Imóveis comercializados</a>
+                <a href="#" class="text-gray-400 cursor-not-allowed">Fique por dentro !</a>
+                <a href="https://wa.me/5511989656941" target="_blank" class="bg-gray-900 hover:bg-km-douradoOriginal text-white px-5 py-2.5 rounded-full transition shadow-sm flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-sm"></i> Fale conosco
+                </a>
+            </nav>
         </div>
-        <span class="text-[9px] font-bold text-km-dourado uppercase bg-km-petroleo/5 px-2.5 py-1 rounded-full">CRECI 59.289F</span>
-    </div>
+    </header>
 
     <!-- ========================================== -->
-    <!-- HERO SECTION / BUSCA                       -->
+    <!-- BANNER DESTAQUE COM CAIXA DE BUSCA FLUTUANTE -->
     <!-- ========================================== -->
-    <section class="pt-8 sm:pt-12 pb-8 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="vidro-fosco rounded-[2.5rem] p-8 sm:p-14 text-center lg:text-left flex flex-col lg:flex-row items-center gap-10">
-            <div class="flex-1">
-                <span class="inline-flex items-center gap-1.5 bg-km-petroleo/5 text-km-petroleo px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 border border-km-petroleo/10">
-                    <i class="fas fa-map-marker-alt text-km-dourado"></i> São Paulo • Itaim Bibi & Vila Nova Conceição
-                </span>
-                <h1 class="font-serif text-4xl sm:text-5xl font-black text-km-petroleo leading-tight mb-4">
-                    O melhor endereço para a sua história.
-                </h1>
-                <p class="text-sm sm:text-base text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    Encontre seu imóvel de alto padrão com rigorosa conferência documental, avaliação mercadológica e atendimento exclusivo do início ao fim.
-                </p>
-            </div>
-            
-            <!-- CAIXA DE BUSCA -->
-            <div class="w-full lg:w-96 bg-white p-6 sm:p-8 rounded-[2rem] shadow-lg border border-gray-100">
-                <h3 class="font-serif font-bold text-xl text-km-petroleo mb-4">Encontre seu imóvel</h3>
-                <div class="space-y-3">
-                    <input type="text" placeholder="Busque pelo código (Ex: 19)" class="input-vidro w-full px-4 py-3.5 text-xs font-semibold" />
-                    <select class="input-vidro w-full px-4 py-3.5 text-xs font-semibold appearance-none">
-                        <option value="">Tipo de imóvel / Negócio</option>
-                        <option value="venda">Venda</option>
-                        <option value="locacao">Locação</option>
-                    </select>
-                    <button class="w-full bg-km-petroleo hover:bg-km-dourado text-white font-bold py-3.5 rounded-full text-xs uppercase tracking-wider transition shadow">
-                        Buscar Imóvel
-                    </button>
-                </div>
+    <section class="relative bg-gray-900 h-[380px] sm:h-[420px] flex items-center justify-center overflow-hidden">
+        <!-- Foto de fundo urbana (mesmo estilo do print) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1600" alt="São Paulo Itaim Bibi" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-black/40"></div>
+        </div>
+
+        <!-- Caixa de Busca Flutuante Central (Igualzinha à original, mas com acabamento moderno) -->
+        <div class="relative z-10 max-w-2xl w-full mx-4 bg-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40">
+            <h2 class="text-xl sm:text-2xl text-center font-serif font-bold text-gray-900 mb-6">Encontre seu imóvel</h2>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input type="text" placeholder="Busque pelo código" class="w-full h-12 px-4 rounded-xl border border-gray-200 text-xs font-semibold focus:outline-none focus:border-km-douradoOriginal" />
+                <select class="w-full h-12 px-4 rounded-xl border border-gray-200 text-xs font-semibold focus:outline-none focus:border-km-douradoOriginal bg-white">
+                    <option value="">Tipo de imóvel:</option>
+                    <option value="venda">Venda</option>
+                    <option value="locacao">Locação</option>
+                </select>
+                <button class="w-full sm:w-36 h-12 bg-gray-900 hover:bg-km-douradoOriginal text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md">
+                    Buscar
+                </button>
             </div>
         </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- CATÁLOGO DE IMÓVEIS EM DESTAQUE            -->
+    <!-- RESULTADO DA BUSCA / IMÓVEIS (SEU LAYOUT)  -->
     <!-- ========================================== -->
-    <section id="imoveis" class="py-10 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="flex justify-between items-end mb-8">
-            <div>
-                <span class="text-[10px] font-bold uppercase tracking-widest text-km-dourado block mb-1">Vitrine Digital</span>
-                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-km-petroleo">Imóveis em Destaque</h2>
-            </div>
-            <span class="text-xs text-gray-500 font-bold hidden sm:inline">Deslize para ver mais fotos ➔</span>
+    <section id="imoveis" class="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-10">
+            <h2 class="font-serif text-3xl font-bold text-gray-900 mb-2">Imóveis em destaque</h2>
+            <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold">Itaim Bibi • Vila Nova Conceição • São Paulo</p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- CARD 1 (Ref 19) -->
-            <div class="bg-white overflow-hidden flex flex-col justify-between group border border-gray-200/80 hover:border-km-dourado transition-all rounded-[2rem] shadow-sm">
+            <div class="card-imovel overflow-hidden flex flex-col justify-between group">
                 <div>
-                    <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
-                        <div class="flex w-full h-full">
-                            <div class="min-w-full w-full h-full relative"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"></div>
-                        </div>
-                        <span class="absolute bottom-3 left-3 bg-km-petroleo text-white text-[10px] font-bold px-3 py-1 rounded-lg uppercase">Ref.: 19</span>
-                        <span class="absolute top-3 right-3 bg-km-dourado text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase shadow">Venda</span>
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Itaim Bibi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute bottom-3 left-3 bg-km-douradoOriginal text-white text-[10px] font-bold px-3 py-1 rounded-md uppercase tracking-wider">Ref.: 19</span>
                     </div>
                     <div class="p-5">
-                        <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest block mb-1"><i class="fas fa-map-marker-alt text-km-dourado mr-1"></i> ITAIM BIBI</span>
-                        <h3 class="font-serif font-bold text-base text-km-petroleo group-hover:text-km-dourado transition">O melhor valor por m² do bairro.</h3>
-                        <p class="text-xl font-black text-km-petroleo mt-3">R$ 3.400.000,00</p>
-                        
-                        <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-km-petroleo font-bold py-2.5 border-y border-gray-100 my-3 bg-gray-50 rounded-xl">
-                            <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 200 m²</div>
-                            <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 3 dorms</div>
-                            <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 3 banh.</div>
+                        <p class="text-xs text-gray-700 font-medium leading-relaxed line-clamp-2">ITAIM BIBI - O melhor valor por m² do bairro.</p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex justify-between items-end">
+                            <div>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase block">Venda</span>
+                                <strong class="text-lg font-black text-gray-900">R$ 3.400.000,00</strong>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-gray-600 font-bold py-2.5 mt-3 border-t border-gray-100 bg-gray-50/50 rounded-xl">
+                            <div><i class="fas fa-ruler-combined text-km-douradoOriginal mr-1"></i> 200 m²</div>
+                            <div><i class="fas fa-bed text-km-douradoOriginal mr-1"></i> 3 dorms</div>
+                            <div><i class="fas fa-bath text-km-douradoOriginal mr-1"></i> 3</div>
                         </div>
                     </div>
                 </div>
                 <div class="px-5 pb-5">
-                    <button class="w-full bg-gray-50 hover:bg-gray-100 text-km-petroleo border border-gray-200 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-1.5 transition">
-                        Ver Detalhes Completos <i class="fas fa-chevron-right text-km-dourado text-[10px]"></i>
-                    </button>
+                    <a href="https://wa.me/5511989656941?text=Olá! Tenho interesse na Ref. 19." target="_blank" class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
+                        Ver Detalhes no WhatsApp <i class="fab fa-whatsapp text-km-verdeZap"></i>
+                    </a>
                 </div>
             </div>
 
             <!-- CARD 2 (Ref 18) -->
-            <div class="bg-white overflow-hidden flex flex-col justify-between group border border-gray-200/80 hover:border-km-dourado transition-all rounded-[2rem] shadow-sm">
+            <div class="card-imovel overflow-hidden flex flex-col justify-between group">
                 <div>
-                    <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
-                        <div class="flex w-full h-full">
-                            <div class="min-w-full w-full h-full relative"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"></div>
-                        </div>
-                        <span class="absolute bottom-3 left-3 bg-km-petroleo text-white text-[10px] font-bold px-3 py-1 rounded-lg uppercase">Ref.: 18</span>
-                        <span class="absolute top-3 right-3 bg-km-dourado text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase shadow">Venda</span>
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Itaim Bibi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute bottom-3 left-3 bg-km-douradoOriginal text-white text-[10px] font-bold px-3 py-1 rounded-md uppercase tracking-wider">Ref.: 18</span>
                     </div>
                     <div class="p-5">
-                        <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest block mb-1"><i class="fas fa-map-marker-alt text-km-dourado mr-1"></i> ITAIM BIBI</span>
-                        <h3 class="font-serif font-bold text-base text-km-petroleo group-hover:text-km-dourado transition">Uma das melhores vistas em 122m² aconchegantes.</h3>
-                        <p class="text-xl font-black text-km-petroleo mt-3">R$ 2.000.000,00</p>
-                        
-                        <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-km-petroleo font-bold py-2.5 border-y border-gray-100 my-3 bg-gray-50 rounded-xl">
-                            <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 122 m²</div>
-                            <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 3 dorms</div>
-                            <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 2 vagas</div>
+                        <p class="text-xs text-gray-700 font-medium leading-relaxed line-clamp-2">Itaim Bibi - Tenha uma das MELHORES vistas do bairro em 122m².</p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex justify-between items-end">
+                            <div>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase block">Venda</span>
+                                <strong class="text-lg font-black text-gray-900">R$ 2.000.000,00</strong>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-gray-600 font-bold py-2.5 mt-3 border-t border-gray-100 bg-gray-50/50 rounded-xl">
+                            <div><i class="fas fa-ruler-combined text-km-douradoOriginal mr-1"></i> 122 m²</div>
+                            <div><i class="fas fa-bed text-km-douradoOriginal mr-1"></i> 3 dorms</div>
+                            <div><i class="fas fa-bath text-km-douradoOriginal mr-1"></i> 2</div>
                         </div>
                     </div>
                 </div>
                 <div class="px-5 pb-5">
-                    <button class="w-full bg-gray-50 hover:bg-gray-100 text-km-petroleo border border-gray-200 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-1.5 transition">
-                        Ver Detalhes Completos <i class="fas fa-chevron-right text-km-dourado text-[10px]"></i>
-                    </button>
+                    <a href="https://wa.me/5511989656941?text=Olá! Tenho interesse na Ref. 18." target="_blank" class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
+                        Ver Detalhes no WhatsApp <i class="fab fa-whatsapp text-km-verdeZap"></i>
+                    </a>
                 </div>
             </div>
 
-            <!-- CARD 3 (Ref 15 - Studio) -->
-            <div class="bg-white overflow-hidden flex flex-col justify-between group border border-gray-200/80 hover:border-km-dourado transition-all rounded-[2rem] shadow-sm">
+            <!-- CARD 3 (Ref 17) -->
+            <div class="card-imovel overflow-hidden flex flex-col justify-between group">
                 <div>
-                    <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
-                        <div class="flex w-full h-full">
-                            <div class="min-w-full w-full h-full relative"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover"></div>
-                        </div>
-                        <span class="absolute bottom-3 left-3 bg-km-petroleo text-white text-[10px] font-bold px-3 py-1 rounded-lg uppercase">Ref.: 15</span>
-                        <span class="absolute top-3 right-3 bg-km-grafite text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase shadow">Locação</span>
+                    <div class="relative aspect-[4/3] bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="Itaim Bibi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute bottom-3 left-3 bg-km-douradoOriginal text-white text-[10px] font-bold px-3 py-1 rounded-md uppercase tracking-wider">Ref.: 17</span>
                     </div>
                     <div class="p-5">
-                        <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest block mb-1"><i class="fas fa-map-marker-alt text-km-dourado mr-1"></i> VILA NOVA CONCEIÇÃO</span>
-                        <h3 class="font-serif font-bold text-base text-km-petroleo group-hover:text-km-dourado transition">Studio novo com infraestrutura completa.</h3>
-                        <p class="text-xl font-black text-km-petroleo mt-3">R$ 4.800,00 <span class="text-xs text-gray-400 font-normal">/mês</span></p>
-                        
-                        <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-km-petroleo font-bold py-2.5 border-y border-gray-100 my-3 bg-gray-50 rounded-xl">
-                            <div><i class="fas fa-ruler-combined text-km-dourado block mb-0.5"></i> 27 m²</div>
-                            <div><i class="fas fa-bed text-km-dourado block mb-0.5"></i> 1 dorm</div>
-                            <div><i class="fas fa-bath text-km-dourado block mb-0.5"></i> 1 banh.</div>
+                        <p class="text-xs text-gray-700 font-medium leading-relaxed line-clamp-2">ITAIM BIBI - Conforto e praticidade em planta funcional.</p>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex justify-between items-end">
+                            <div>
+                                <span class="text-[10px] text-gray-400 font-bold uppercase block">Venda</span>
+                                <strong class="text-lg font-black text-gray-900">R$ 2.370.000,00</strong>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-gray-600 font-bold py-2.5 mt-3 border-t border-gray-100 bg-gray-50/50 rounded-xl">
+                            <div><i class="fas fa-ruler-combined text-km-douradoOriginal mr-1"></i> 120 m²</div>
+                            <div><i class="fas fa-bed text-km-douradoOriginal mr-1"></i> 3 dorms</div>
+                            <div><i class="fas fa-bath text-km-douradoOriginal mr-1"></i> 4</div>
                         </div>
                     </div>
                 </div>
                 <div class="px-5 pb-5">
-                    <button class="w-full bg-gray-50 hover:bg-gray-100 text-km-petroleo border border-gray-200 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-1.5 transition">
-                        Ver Detalhes Completos <i class="fas fa-chevron-right text-km-dourado text-[10px]"></i>
-                    </button>
+                    <a href="https://wa.me/5511989656941?text=Olá! Tenho interesse na Ref. 17." target="_blank" class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
+                        Ver Detalhes no WhatsApp <i class="fab fa-whatsapp text-km-verdeZap"></i>
+                    </a>
                 </div>
             </div>
 
@@ -257,85 +219,31 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SEÇÃO SOBRE A CORRETORA                    -->
+    <!-- RODAPÉ ORIGINAL ESCURO                     -->
     <!-- ========================================== -->
-    <section id="sobre" class="py-12 px-4 sm:px-8 max-w-6xl mx-auto">
-        <div class="vidro-fosco p-8 sm:p-12 rounded-[2.5rem]">
-            <div class="grid md:grid-cols-12 gap-8 items-center">
-                <div class="md:col-span-5 text-center">
-                    <div class="p-2 border-2 border-km-dourado/30 rounded-3xl inline-block bg-white shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Kelli Martins" class="rounded-2xl object-cover w-64 h-80">
-                    </div>
-                </div>
-                <div class="md:col-span-7 space-y-4">
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-km-dourado bg-km-petroleo/5 px-3 py-1.5 rounded-full">Excelência e Rigor</span>
-                    <h2 class="font-serif text-3xl font-bold text-km-petroleo">Kelli Martins</h2>
-                    <p class="text-sm text-gray-600 leading-relaxed font-medium">
-                        Atuação focada no mercado imobiliário de alto padrão em São Paulo. Conduzo cada negociação com clareza documental, análise de riscos e avaliação de mercado precisa para garantir total segurança jurídica e patrimonial.
-                    </p>
-                    <div class="pt-2">
-                        <span class="inline-block bg-white border border-gray-200 text-km-petroleo text-xs font-bold px-4 py-2 rounded-xl shadow-sm">
-                            CRECI 59.289F
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- SEÇÃO DE SERVIÇOS                          -->
-    <!-- ========================================== -->
-    <section id="servicos" class="py-10 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div class="text-center max-w-xl mx-auto mb-10">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-km-dourado block mb-1">Soluções</span>
-            <h2 class="font-serif text-3xl font-bold text-km-petroleo">Assessoria Especializada</h2>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm">
-                <div class="w-12 h-12 rounded-2xl bg-km-petroleo/5 text-km-petroleo flex items-center justify-center text-xl mb-4"><i class="fas fa-home text-km-dourado"></i></div>
-                <h3 class="font-serif font-bold text-lg text-km-petroleo mb-2">Compra & Venda</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">Intermediação com checagem minuciosa de certidões e suporte jurídico até a escritura.</p>
-            </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm">
-                <div class="w-12 h-12 rounded-2xl bg-km-petroleo/5 text-km-petroleo flex items-center justify-center text-xl mb-4"><i class="fas fa-key text-km-dourado"></i></div>
-                <h3 class="font-serif font-bold text-lg text-km-petroleo mb-2">Locação & Gestão</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">Contratos seguros, análise rigorosa de garantias e suporte completo para proprietários.</p>
-            </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm">
-                <div class="w-12 h-12 rounded-2xl bg-km-petroleo/5 text-km-petroleo flex items-center justify-center text-xl mb-4"><i class="fas fa-calculator text-km-dourado"></i></div>
-                <h3 class="font-serif font-bold text-lg text-km-petroleo mb-2">Avaliação Imobiliária</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">Parecer Técnico de Avaliação Mercadológica fundamentado para inventários e vendas.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- RODAPÉ                                     -->
-    <!-- ========================================== -->
-    <footer id="contato" class="bg-km-petroleo text-white pt-12 pb-12 mt-16 rounded-t-[3rem] px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+    <footer class="bg-km-petroleoEscuro text-white pt-12 pb-12 mt-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
             <div>
-                <h3 class="font-serif text-xl font-bold mb-1">Kelli Martins</h3>
-                <p class="text-[10px] text-km-dourado uppercase tracking-widest font-bold">Imobiliária • São Paulo</p>
-                <p class="text-gray-400 text-xs mt-2 font-bold">CRECI 59.289F</p>
+                <strong class="text-xs uppercase tracking-widest text-gray-400 block mb-2">Redes sociais</strong>
+                <a href="https://www.instagram.com/kellimartinsimoveis/" target="_blank" class="text-pink-400 hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
             </div>
-            
-            <div class="flex flex-col gap-2 items-center md:items-start text-xs">
-                <span class="text-km-dourado font-bold uppercase tracking-wider">Contato Direto</span>
-                <a href="https://wa.me/5511989656941" target="_blank" class="text-gray-300 hover:text-white flex items-center gap-1.5"><i class="fab fa-whatsapp text-km-verdeZap"></i> (11) 98965-6941</a>
-                <a href="mailto:kellimartins0703@gmail.com" class="text-gray-300 hover:text-white"><i class="far fa-envelope mr-1"></i> kellimartins0703@gmail.com</a>
+            <div>
+                <strong class="text-xs uppercase tracking-widest text-gray-400 block mb-1">WhatsApp</strong>
+                <a href="https://wa.me/5511989656941" class="text-sm font-bold text-white hover:text-km-douradoOriginal">(11) 98965-6941</a>
             </div>
-
-            <div class="flex items-center justify-center md:justify-end gap-3">
-                <a href="https://www.instagram.com/kellimartinsimoveis/" target="_blank" class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:bg-km-d0urado transition"><i class="fab fa-instagram"></i></a>
+            <div>
+                <strong class="text-xs uppercase tracking-widest text-gray-400 block mb-1">Ligue agora</strong>
+                <a href="tel:11989656941" class="text-sm font-bold text-white hover:text-km-douradoOriginal">(11) 98965-6941</a>
+            </div>
+            <div>
+                <strong class="text-xs uppercase tracking-widest text-gray-400 block mb-1">Fale com um</strong>
+                <span class="text-sm font-bold text-white">Corretor</span>
             </div>
         </div>
-        
-        <div class="max-w-7xl mx-auto border-t border-gray-800 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider gap-2">
-            <span>© 2026 Kelli Martins. Todos os direitos reservados.</span>
-            <span>Design por <strong class="text-km-dourado tracking-widest">eve Design</strong></span>
+
+        <div class="max-w-7xl mx-auto border-t border-gray-800 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-widest gap-2">
+            <span>© 2026 Todos os direitos reservados. Kelli Martins - Imobiliária.</span>
+            <span>Redesign por <strong class="text-km-douradoOriginal">eve Design</strong></span>
         </div>
     </footer>
 
@@ -343,23 +251,23 @@
     <!-- NAVEGAÇÃO MOBILE (ESTILO APLICATIVO)       -->
     <!-- ========================================== -->
     <div class="lg:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl z-50 px-6 py-2 pb-6 flex justify-between items-end rounded-t-[2rem]">
-        <a href="#" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-dourado w-16">
+        <a href="#" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-douradoOriginal w-16">
             <i class="fas fa-home text-lg mb-1"></i>
             <span class="text-[9px] font-bold uppercase tracking-widest">Início</span>
         </a>
-        <a href="#imoveis" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-dourado w-16">
+        <a href="#imoveis" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-douradoOriginal w-16">
             <i class="fas fa-building text-lg mb-1"></i>
             <span class="text-[9px] font-bold uppercase tracking-widest">Imóveis</span>
         </a>
-        <a href="https://wa.me/5511989656941" target="_blank" class="flex flex-col items-center text-km-petroleo w-16 relative">
-            <div class="bg-km-petroleo text-white w-12 h-12 rounded-full flex items-center justify-center absolute bottom-4 shadow-lg border-2 border-white">
-                <i class="fab fa-whatsapp text-2xl text-km-dourado"></i>
+        <a href="https://wa.me/5511989656941" target="_blank" class="flex flex-col items-center text-gray-900 w-16 relative">
+            <div class="bg-gray-900 text-white w-12 h-12 rounded-full flex items-center justify-center absolute bottom-4 shadow-lg border-2 border-white">
+                <i class="fab fa-whatsapp text-2xl text-km-douradoOriginal"></i>
             </div>
             <span class="text-[9px] font-bold uppercase tracking-widest mt-7">Contato</span>
         </a>
-        <a href="#servicos" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-dourado w-16">
-            <i class="fas fa-concierge-bell text-lg mb-1"></i>
-            <span class="text-[9px] font-bold uppercase tracking-widest">Serviços</span>
+        <a href="mailto:kellimartins0703@gmail.com" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-douradoOriginal w-16">
+            <i class="far fa-envelope text-lg mb-1"></i>
+            <span class="text-[9px] font-bold uppercase tracking-widest">E-mail</span>
         </a>
     </div>
 
