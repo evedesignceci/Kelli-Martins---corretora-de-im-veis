@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <title>Seu Nome Aqui | Imóveis de Alto Padrão</title>
+        <title>Seu Nome Aqui | Imóveis de Alto Padrão em São Paulo</title>
         
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,118 +43,139 @@
 
         <style>
             * { -webkit-tap-highlight-color: transparent; }
-            body { background-color: #EED9C4; color: #00262A; overflow-x: hidden; }
             
-            .vidro-fosco {
-                background: rgba(255, 255, 255, 0.75);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border: 1px solid rgba(255, 255, 255, 0.9);
-                box-shadow: 0 10px 30px -4px rgba(0, 46, 51, 0.10);
-                border-radius: 1.5rem;
+            /* Fundo Urbano Elegante */
+            body { 
+                background-color: #EED9C4; 
+                color: #00262A; 
+                overflow-x: hidden; 
+                -webkit-font-smoothing: antialiased;
             }
+            
+            /* Efeito Vidro Premium */
+            .vidro-fosco {
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.9);
+                box-shadow: 0 10px 40px -10px rgba(0, 38, 42, 0.15);
+            }
+            
             .input-vidro {
                 background: rgba(255, 255, 255, 0.95);
                 border: 1px solid #ffffff;
                 color: #00383D;
                 border-radius: 9999px;
+                transition: all 0.3s ease;
             }
             .input-vidro:focus {
                 background: #FFFFFF;
                 border-color: #0097B2;
                 outline: none;
-                box-shadow: 0 0 0 4px rgba(0, 151, 178, 0.22);
+                box-shadow: 0 0 0 4px rgba(0, 151, 178, 0.15);
             }
-            .card-hover:hover { transform: translateY(-4px); transition: all 0.3s ease; }
+            
+            .card-hover:hover { transform: translateY(-6px); transition: all 0.3s ease; }
             .scrollbar-hide::-webkit-scrollbar { display: none; }
             .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
             img { user-select: none; -webkit-user-drag: none; object-fit: cover; }
+            
+            /* Efeito Ripple botões (Click app) */
+            .btn-ripple { transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease; }
+            .btn-ripple:hover { filter: brightness(1.05); }
+            .btn-ripple:active { transform: scale(0.95) !important; }
         </style>
     </head>
-    <body class="antialiased relative selection:bg-km-laranja selection:text-white pb-20">
+    
+    <!-- pb-28 no mobile impede que o footer fique escondido atrás do menu app. lg:pb-0 reseta no desktop -->
+    <body class="relative selection:bg-km-laranja selection:text-white pb-28 lg:pb-0">
 
-        <!-- TOPO DE INFORMAÇÕES EXECUTIVO -->
-        <header class="bg-km-escuro/90 backdrop-blur-md text-white text-xs py-2.5 px-5 sm:px-8 border-b border-white/15 relative z-50">
+        <!-- TOPO DE INFORMAÇÕES EXECUTIVO (Desktop) -->
+        <header class="hidden sm:block bg-km-escuro/95 backdrop-blur-md text-white text-xs py-2 px-8 border-b border-white/10 relative z-50">
             <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-                <div class="flex items-center gap-3 font-medium">
-                    <span><i class="fas fa-water text-km-ceu mr-1"></i> Suas Regiões Aqui • SP</span>
-                    <span class="text-white/30 hidden sm:inline">|</span>
-                    <span class="hidden sm:inline">CRECI: <strong class="text-km-ceu">Seu Creci Aqui</strong></span>
+                <div class="flex items-center gap-3 font-medium tracking-wide">
+                    <span><i class="fas fa-building text-km-ceu mr-1.5 opacity-80"></i> São Paulo • SP</span>
+                    <span class="text-white/20">|</span>
+                    <span>CRECI: <strong class="text-km-ceu">00000-F</strong></span>
                 </div>
-                <div class="flex items-center gap-4 font-semibold">
-                    <span class="hover:text-km-ceu transition flex items-center gap-1.5"><i class="fab fa-whatsapp text-emerald-400 text-sm"></i> <span class="hidden sm:inline">(00) 00000-0000</span></span>
-                    <span class="text-white/30">|</span>
-                    <div class="flex items-center gap-3 text-sm">
+                <div class="flex items-center gap-5 font-semibold">
+                    <a href="https://wa.me/5511989656941" target="_blank" class="hover:text-km-ceu transition flex items-center gap-2"><i class="fab fa-whatsapp text-emerald-400 text-sm"></i> (11) 98965-6941</a>
+                    <span class="text-white/20">|</span>
+                    <div class="flex items-center gap-4 text-sm">
                         <a href="#" class="hover:text-km-ceu transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-km-ceu transition"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/5511989656941" target="_blank" class="hover:text-km-ceu transition"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- NAVBAR PRINCIPAL FLUTUANTE -->
-        <div class="sticky top-2 z-40 px-4 sm:px-8 w-full max-w-7xl mx-auto">
-            <nav class="bg-white/95 backdrop-blur-xl border border-gray-100 shadow-md rounded-full py-0.5 px-6 sm:px-8">
+        <!-- NAVBAR PRINCIPAL FLUTUANTE (Vidro Fosco) -->
+        <div class="sticky top-2 sm:top-4 z-[80] px-3 sm:px-6 w-full max-w-7xl mx-auto transition-all">
+            <nav class="vidro-fosco rounded-full py-1.5 px-5 sm:px-8">
                 <div class="flex justify-between items-center h-14 sm:h-16">
-                    <a href="#" class="flex items-center gap-2.5 group">
-                        <div class="w-10 h-10 rounded-full bg-km-marfimClaro flex items-center justify-center font-serif font-bold text-km-petroleo text-sm border border-km-petroleo/20">
-                            SN
+                    <!-- Logo / Identidade -->
+                    <a href="#" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-km-marfimClaro flex items-center justify-center font-serif font-bold text-km-petroleo text-sm border border-km-petroleo/20 shadow-inner group-hover:scale-105 transition-transform">
+                            KM
                         </div>
                         <div>
-                            <span class="font-serif text-lg sm:text-xl font-bold text-km-petroleo tracking-tight block leading-none">Seu Nome Aqui</span>
-                            <span class="text-[10px] font-bold text-km-laranja uppercase tracking-wider block mt-0.5">Sinta a brisa. Vista-se de mar.</span>
+                            <span class="font-serif text-lg sm:text-xl font-bold text-km-petroleo tracking-tight block leading-none">Kelli Martins</span>
+                            <span class="text-[9px] sm:text-[10px] font-bold text-km-laranja uppercase tracking-widest block mt-1">Alto Padrão SP</span>
                         </div>
                     </a>
                     
-                    <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-km-petroleo">
-                        <a href="#imoveis" class="hover:text-km-laranja transition py-2">Catálogo</a>
-                        <a href="#sobre" class="hover:text-km-laranja transition py-2">Sobre</a>
-                        <a href="#servicos" class="hover:text-km-laranja transition py-2">Serviços</a>
-                        <a href="#contato-secao" class="bg-km-laranja hover:bg-km-laranjaHover text-white font-bold px-6 py-2.5 rounded-full shadow transition ml-2">
-                            <i class="fab fa-whatsapp text-base"></i> Falar com Corretor(a)
+                    <!-- Menu Desktop -->
+                    <div class="hidden lg:flex items-center space-x-8 text-sm font-bold text-km-petroleo tracking-wide">
+                        <a href="#imoveis" class="hover:text-km-laranja transition py-2 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-km-laranja hover:after:w-full after:transition-all">Catálogo</a>
+                        <a href="#sobre" class="hover:text-km-laranja transition py-2 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-km-laranja hover:after:w-full after:transition-all">Sobre</a>
+                        <a href="#contato-secao" class="hover:text-km-laranja transition py-2 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-km-laranja hover:after:w-full after:transition-all">Contato</a>
+                        <a href="https://wa.me/5511989656941" target="_blank" class="btn-ripple bg-km-laranja hover:bg-km-laranjaHover text-white font-bold px-7 py-3 rounded-full shadow-lg transition ml-2 flex items-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> Falar com a Kelli
                         </a>
                     </div>
                 </div>
             </nav>
         </div>
 
-        <!-- HERO SECTION COM DEGRADÉ ACOLHEDOR -->
-        <section class="pt-6 sm:pt-10 pb-6 px-4 sm:px-8 max-w-7xl mx-auto relative z-10">
-            <div class="bg-white/85 backdrop-blur-xl border border-white shadow-lg rounded-[2rem] p-6 sm:p-10">
-                <span class="inline-flex items-center gap-1.5 bg-km-petroleo text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 shadow-sm">
-                    <i class="fas fa-sun text-km-laranja"></i> Oportunidades Selecionadas
+        <!-- HERO SECTION COM MENSAGEM DE IMPACTO -->
+        <section class="pt-6 sm:pt-12 pb-6 px-4 sm:px-6 max-w-7xl mx-auto relative z-10">
+            <div class="vidro-fosco p-6 sm:p-12 text-center sm:text-left">
+                <span class="inline-flex items-center gap-2 bg-km-petroleo text-white px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-5 shadow-sm">
+                    <i class="fas fa-key text-km-laranja"></i> Itaim Bibi & Vila Nova Conceição
                 </span>
-                <h1 class="font-serif text-3xl sm:text-5xl font-black text-km-petroleo leading-tight mb-4">
-                    Descubra Espaços Que Parecem Lar.
+                <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-black text-km-petroleo leading-tight mb-5 drop-shadow-sm">
+                    Descubra Espaços<br class="hidden sm:block"> Que Parecem Lar.
                 </h1>
-                <p class="text-[13px] sm:text-base text-gray-700 font-medium leading-relaxed max-w-2xl">
-                    Encontre seu refúgio com rigorosa conferência de certidões, avaliação imobiliária homologada e suporte completo do início ao fim.
+                <p class="text-xs sm:text-base text-gray-700 font-medium leading-relaxed max-w-2xl mx-auto sm:mx-0">
+                    Acesso exclusivo às melhores captações da região. Rigorosa conferência de certidões, avaliação homologada e assessoria premium do início ao fim.
                 </p>
             </div>
         </section>
 
         <!-- RESULTADO DA BUSCA / CATÁLOGO -->
-        <section id="imoveis" class="py-8 sm:py-12 px-4 sm:px-8 max-w-7xl mx-auto relative z-10 scroll-mt-20">
-            <div class="bg-white/80 backdrop-blur-xl border border-white p-5 sm:p-8 mb-8 rounded-[2rem] shadow-lg">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+        <section id="imoveis" class="py-8 sm:py-12 px-4 sm:px-6 max-w-7xl mx-auto relative z-10 scroll-mt-24">
+            
+            <!-- Barra de Busca -->
+            <div class="vidro-fosco p-5 sm:p-8 mb-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-5">
                     <div>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-km-laranja block mb-1">Vitrine Digital (Arraste para ver mais fotos)</span>
-                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-km-petroleo">Resultado da busca</h2>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-km-laranja block mb-1">Catálogo Selecionado</span>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-km-petroleo">Imóveis Disponíveis</h2>
                     </div>
-                    <div class="w-full sm:w-72 relative">
-                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-km-petroleo/50 text-sm"></i>
-                        <input type="text" id="campoBusca" oninput="filtrarImoveisTexto(this.value)" placeholder="Buscar condomínio ou bairro..." class="input-vidro w-full pl-10 pr-4 py-3 text-sm font-semibold shadow-sm bg-white" />
+                    <div class="w-full md:w-80 relative group">
+                        <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-km-petroleo/40 text-sm group-hover:text-km-laranja transition-colors"></i>
+                        <input type="text" id="campoBusca" oninput="filtrarImoveisTexto(this.value)" placeholder="Buscar bairro, rua ou referência..." class="input-vidro w-full pl-12 pr-5 py-3.5 text-sm font-bold shadow-sm bg-white" />
                     </div>
                 </div>
             </div>
 
-            <!-- GRID DE CARDS COM SUPORTE A SWIPE / PASSAR O DEDO -->
+            <!-- GRID DE CARDS -->
             <div id="gridImoveis" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
                 
                 <!-- Card 1 -->
-                <div class="card-imovel bg-white/90 backdrop-blur-md overflow-hidden flex flex-col justify-between group border border-gray-200 hover:border-km-petroleo transition-all rounded-[1.5rem] card-hover shadow-sm" data-texto="itaim bibi o melhor valor por m2">
+                <div class="card-imovel bg-white/90 backdrop-blur-md overflow-hidden flex flex-col justify-between group border border-gray-200/80 hover:border-km-petroleo transition-all rounded-[1.5rem] card-hover shadow-lg" data-texto="itaim bibi o melhor valor por m2">
                     <div>
-                        <!-- Área de Fotos com Swipe por toque ou mouse -->
+                        <!-- Área de Fotos com Swipe -->
                         <div class="relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-grab active:cursor-grabbing select-none"
                              style="touch-action: pan-y;"
                              ontouchstart="iniciarArrasto(event, 'carro_1')" 
@@ -171,38 +192,39 @@
                                 <div class="min-w-full w-full h-full flex-shrink-0 relative"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"></div>
                             </div>
 
-                            <span class="absolute bottom-3 left-3 bg-km-petroleo text-white text-[10px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider z-20 pointer-events-none">Ref.: 101</span>
-                            <span class="absolute top-3 right-3 bg-km-laranja text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-widest shadow z-20 pointer-events-none">Venda</span>
+                            <span class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md text-km-petroleo text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider z-20 pointer-events-none shadow-sm border border-gray-100">Ref.: 101</span>
+                            <span class="absolute top-3 right-3 bg-km-laranja text-white text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-md z-20 pointer-events-none">Venda</span>
                             
-                            <!-- Indicadores de bolinhas do carrossel -->
-                            <div class="absolute bottom-2.5 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
+                            <!-- Indicadores de bolinhas -->
+                            <div class="absolute bottom-3 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
                                 <span id="dot_carro_1_0" class="w-1.5 h-1.5 rounded-full bg-white shadow border border-white/60 scale-125 transition-all"></span>
                                 <span id="dot_carro_1_1" class="w-1.5 h-1.5 rounded-full bg-white/50 transition-all"></span>
                                 <span id="dot_carro_1_2" class="w-1.5 h-1.5 rounded-full bg-white/50 transition-all"></span>
                             </div>
                         </div>
 
-                        <div class="p-5 cursor-pointer" onclick="abrirModalDetalhes('Ref.: 101', 'SUA REGIÃO - O melhor valor por m²', 'R$ 3.400.000,00', '200 m²', '3 dorms', '3 suítes', 'Imóvel espetacular localizado na região mais nobre. Acabamento em mármore importado e lazer completo.', ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800'])">
-                            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1"><i class="fas fa-map-marker-alt text-km-laranja mr-1"></i> Sua Região • São Paulo</span>
-                            <h3 class="font-serif font-bold text-base sm:text-lg text-km-petroleo group-hover:text-km-laranja transition">SUA REGIÃO - O melhor valor por m²</h3>
-                            <p class="text-xs text-gray-600 font-medium mt-1.5 line-clamp-2">Ambientes amplos, iluminados e localização privilegiada com alto padrão de acabamento.</p>
-                            <p class="text-xl font-black text-km-petroleo mt-3">R$ 3.400.000,00</p>
-                            <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-km-petroleo font-bold py-2.5 border-y border-gray-200/60 my-3 bg-gray-50 rounded-xl">
-                                <div><i class="fas fa-ruler-combined text-km-laranja block mb-0.5"></i> 200 m²</div>
-                                <div><i class="fas fa-bed text-km-laranja block mb-0.5"></i> 3 dorms</div>
-                                <div><i class="fas fa-bath text-km-laranja block mb-0.5"></i> 3 suítes</div>
+                        <div class="p-5 cursor-pointer" onclick="abrirModalDetalhes('Ref.: 101', 'ITAIM BIBI - O melhor valor por m²', 'R$ 3.400.000,00', '200 m²', '3 dorms', '3 suítes', 'Imóvel espetacular localizado na região mais nobre. Acabamento em mármore importado e lazer completo.', ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800'])">
+                            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1.5"><i class="fas fa-map-marker-alt text-km-laranja mr-1"></i> Itaim Bibi • São Paulo</span>
+                            <h3 class="font-serif font-bold text-base sm:text-lg text-km-petroleo group-hover:text-km-laranja transition leading-tight">ITAIM BIBI - O melhor valor por m²</h3>
+                            <p class="text-[11px] sm:text-xs text-gray-600 font-medium mt-2 line-clamp-2">Ambientes amplos, iluminados e localização privilegiada com alto padrão de acabamento.</p>
+                            <p class="text-xl sm:text-2xl font-black text-km-petroleo mt-4 drop-shadow-sm">R$ 3.400.000,00</p>
+                            
+                            <div class="grid grid-cols-3 gap-1 text-center text-[10px] sm:text-[11px] text-km-petroleo font-bold py-3 border-y border-gray-100 mt-4 mb-2 bg-gray-50/50 rounded-xl">
+                                <div><i class="fas fa-ruler-combined text-km-laranja block mb-1 text-sm"></i> 200 m²</div>
+                                <div><i class="fas fa-bed text-km-laranja block mb-1 text-sm"></i> 3 dorms</div>
+                                <div><i class="fas fa-bath text-km-laranja block mb-1 text-sm"></i> 3 suítes</div>
                             </div>
                         </div>
                     </div>
                     <div class="px-5 pb-5">
-                        <button onclick="abrirModalDetalhes('Ref.: 101', 'SUA REGIÃO - O melhor valor por m²', 'R$ 3.400.000,00', '200 m²', '3 dorms', '3 suítes', 'Imóvel espetacular localizado na região mais nobre. Acabamento em mármore importado e lazer completo.', ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800'])" class="w-full bg-km-claro hover:bg-gray-100 text-km-petroleo border border-gray-200 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-1.5 transition">
+                        <button onclick="abrirModalDetalhes('Ref.: 101', 'ITAIM BIBI - O melhor valor por m²', 'R$ 3.400.000,00', '200 m²', '3 dorms', '3 suítes', 'Imóvel espetacular localizado na região mais nobre. Acabamento em mármore importado e lazer completo.', ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800'])" class="btn-ripple w-full bg-km-claro hover:bg-gray-100 text-km-petroleo border border-gray-200 text-[11px] sm:text-xs font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition">
                             Ver Detalhes Completos <i class="fas fa-chevron-right text-km-laranja text-[10px]"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="card-imovel bg-white/90 backdrop-blur-md overflow-hidden flex flex-col justify-between group border border-gray-200 hover:border-km-petroleo transition-all rounded-[1.5rem] card-hover shadow-sm" data-texto="vista privilegiada 122m2 aconchegante">
+                <div class="card-imovel bg-white/90 backdrop-blur-md overflow-hidden flex flex-col justify-between group border border-gray-200/80 hover:border-km-petroleo transition-all rounded-[1.5rem] card-hover shadow-lg" data-texto="vista privilegiada 122m2 aconchegante">
                     <div>
                         <div class="relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-grab active:cursor-grabbing select-none"
                              style="touch-action: pan-y;"
@@ -219,36 +241,37 @@
                                 <div class="min-w-full w-full h-full flex-shrink-0 relative"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"></div>
                             </div>
 
-                            <span class="absolute bottom-3 left-3 bg-km-petroleo text-white text-[10px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider z-20 pointer-events-none">Ref.: 102</span>
-                            <span class="absolute top-3 right-3 bg-km-laranja text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-widest shadow z-20 pointer-events-none">Venda</span>
+                            <span class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md text-km-petroleo text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider z-20 pointer-events-none shadow-sm border border-gray-100">Ref.: 102</span>
+                            <span class="absolute top-3 right-3 bg-km-laranja text-white text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-md z-20 pointer-events-none">Venda</span>
                             
-                            <div class="absolute bottom-2.5 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
+                            <div class="absolute bottom-3 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
                                 <span id="dot_carro_2_0" class="w-1.5 h-1.5 rounded-full bg-white shadow border border-white/60 scale-125 transition-all"></span>
                                 <span id="dot_carro_2_1" class="w-1.5 h-1.5 rounded-full bg-white/50 transition-all"></span>
                             </div>
                         </div>
 
                         <div class="p-5 cursor-pointer" onclick="abrirModalDetalhes('Ref.: 102', 'VISTA PRIVILEGIADA - 122m² aconchegante', 'R$ 2.000.000,00', '122 m²', '3 dorms', '2 vagas', 'Tenha uma das melhores vistas da região em um apartamento aconchegante com excelente iluminação natural.', ['https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800'])">
-                            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1"><i class="fas fa-map-marker-alt text-km-laranja mr-1"></i> Sua Região • São Paulo</span>
-                            <h3 class="font-serif font-bold text-base sm:text-lg text-km-petroleo group-hover:text-km-laranja transition">VISTA PRIVILEGIADA - 122m² aconchegante</h3>
-                            <p class="text-xs text-gray-600 font-medium mt-1.5 line-clamp-2">Apartamento com ótima distribuição de planta e ventilação natural privilegiada.</p>
-                            <p class="text-xl font-black text-km-petroleo mt-3">R$ 2.000.000,00</p>
-                            <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-km-petroleo font-bold py-2.5 border-y border-gray-200/60 my-3 bg-gray-50 rounded-xl">
-                                <div><i class="fas fa-ruler-combined text-km-laranja block mb-0.5"></i> 122 m²</div>
-                                <div><i class="fas fa-bed text-km-laranja block mb-0.5"></i> 3 dorms</div>
-                                <div><i class="fas fa-bath text-km-laranja block mb-0.5"></i> 2 vagas</div>
+                            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1.5"><i class="fas fa-map-marker-alt text-km-laranja mr-1"></i> Itaim Bibi • São Paulo</span>
+                            <h3 class="font-serif font-bold text-base sm:text-lg text-km-petroleo group-hover:text-km-laranja transition leading-tight">VISTA PRIVILEGIADA - 122m² aconchegante</h3>
+                            <p class="text-[11px] sm:text-xs text-gray-600 font-medium mt-2 line-clamp-2">Apartamento com ótima distribuição de planta e ventilação natural privilegiada.</p>
+                            <p class="text-xl sm:text-2xl font-black text-km-petroleo mt-4 drop-shadow-sm">R$ 2.000.000,00</p>
+                            
+                            <div class="grid grid-cols-3 gap-1 text-center text-[10px] sm:text-[11px] text-km-petroleo font-bold py-3 border-y border-gray-100 mt-4 mb-2 bg-gray-50/50 rounded-xl">
+                                <div><i class="fas fa-ruler-combined text-km-laranja block mb-1 text-sm"></i> 122 m²</div>
+                                <div><i class="fas fa-bed text-km-laranja block mb-1 text-sm"></i> 3 dorms</div>
+                                <div><i class="fas fa-car text-km-laranja block mb-1 text-sm"></i> 2 vagas</div>
                             </div>
                         </div>
                     </div>
                     <div class="px-5 pb-5">
-                        <button onclick="abrirModalDetalhes('Ref.: 102', 'VISTA PRIVILEGIADA - 122m² aconchegante', 'R$ 2.000.000,00', '122 m²', '3 dorms', '2 vagas', 'Tenha uma das melhores vistas da região em um apartamento aconchegante com excelente iluminação natural.', ['https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800'])" class="w-full bg-km-claro hover:bg-gray-100 text-km-petroleo border border-gray-200 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-1.5 transition">
+                        <button onclick="abrirModalDetalhes('Ref.: 102', 'VISTA PRIVILEGIADA - 122m² aconchegante', 'R$ 2.000.000,00', '122 m²', '3 dorms', '2 vagas', 'Tenha uma das melhores vistas da região em um apartamento aconchegante com excelente iluminação natural.', ['https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800'])" class="btn-ripple w-full bg-km-claro hover:bg-gray-100 text-km-petroleo border border-gray-200 text-[11px] sm:text-xs font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition">
                             Ver Detalhes Completos <i class="fas fa-chevron-right text-km-laranja text-[10px]"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="card-imovel bg-white/90 backdrop-blur-md overflow-hidden flex flex-col justify-between group border border-gray-200 hover:border-km-petroleo transition-all rounded-[1.5rem] card-hover shadow-sm" data-texto="cobertura charmosa com churrasqueira">
+                <div class="card-imovel bg-white/90 backdrop-blur-md overflow-hidden flex flex-col justify-between group border border-gray-200/80 hover:border-km-petroleo transition-all rounded-[1.5rem] card-hover shadow-lg" data-texto="cobertura charmosa com churrasqueira">
                     <div>
                         <div class="relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-grab active:cursor-grabbing select-none"
                              style="touch-action: pan-y;"
@@ -265,29 +288,30 @@
                                 <div class="min-w-full w-full h-full flex-shrink-0 relative"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover"></div>
                             </div>
 
-                            <span class="absolute bottom-3 left-3 bg-km-petroleo text-white text-[10px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider z-20 pointer-events-none">Ref.: 103</span>
-                            <span class="absolute top-3 right-3 bg-km-laranja text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-widest shadow z-20 pointer-events-none">Venda</span>
+                            <span class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md text-km-petroleo text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider z-20 pointer-events-none shadow-sm border border-gray-100">Ref.: 103</span>
+                            <span class="absolute top-3 right-3 bg-km-laranja text-white text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-md z-20 pointer-events-none">Venda</span>
                             
-                            <div class="absolute bottom-2.5 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
+                            <div class="absolute bottom-3 left-0 w-full flex justify-center gap-1.5 z-20 pointer-events-none">
                                 <span id="dot_carro_3_0" class="w-1.5 h-1.5 rounded-full bg-white shadow border border-white/60 scale-125 transition-all"></span>
                                 <span id="dot_carro_3_1" class="w-1.5 h-1.5 rounded-full bg-white/50 transition-all"></span>
                             </div>
                         </div>
 
                         <div class="p-5 cursor-pointer" onclick="abrirModalDetalhes('Ref.: 103', 'COBERTURA CHARMOSA - Com linda vista', 'R$ 2.650.000,00', '107 m²', '3 dorms', '3 banh.', 'Cobertura dúplex charmosa com espaço gourmet, churrasqueira privativa e acabamento impecável.', ['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800'])">
-                            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1"><i class="fas fa-map-marker-alt text-km-laranja mr-1"></i> Sua Região • São Paulo</span>
-                            <h3 class="font-serif font-bold text-base sm:text-lg text-km-petroleo group-hover:text-km-laranja transition">COBERTURA CHARMOSA - Com linda vista</h3>
-                            <p class="text-xs text-gray-600 font-medium mt-1.5 line-clamp-2">Planta funcional, lazer integrado e excelente localização em rua tranquila.</p>
-                            <p class="text-xl font-black text-km-petroleo mt-3">R$ 2.650.000,00</p>
-                            <div class="grid grid-cols-3 gap-1 text-center text-[11px] text-km-petroleo font-bold py-2.5 border-y border-gray-200/60 my-3 bg-gray-50 rounded-xl">
-                                <div><i class="fas fa-ruler-combined text-km-laranja block mb-0.5"></i> 107 m²</div>
-                                <div><i class="fas fa-bed text-km-laranja block mb-0.5"></i> 3 dorms</div>
-                                <div><i class="fas fa-bath text-km-laranja block mb-0.5"></i> 3 banh.</div>
+                            <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest block mb-1.5"><i class="fas fa-map-marker-alt text-km-laranja mr-1"></i> Vila Nova Conceição • SP</span>
+                            <h3 class="font-serif font-bold text-base sm:text-lg text-km-petroleo group-hover:text-km-laranja transition leading-tight">COBERTURA CHARMOSA - Com linda vista</h3>
+                            <p class="text-[11px] sm:text-xs text-gray-600 font-medium mt-2 line-clamp-2">Planta funcional, lazer integrado e excelente localização em rua tranquila.</p>
+                            <p class="text-xl sm:text-2xl font-black text-km-petroleo mt-4 drop-shadow-sm">R$ 2.650.000,00</p>
+                            
+                            <div class="grid grid-cols-3 gap-1 text-center text-[10px] sm:text-[11px] text-km-petroleo font-bold py-3 border-y border-gray-100 mt-4 mb-2 bg-gray-50/50 rounded-xl">
+                                <div><i class="fas fa-ruler-combined text-km-laranja block mb-1 text-sm"></i> 107 m²</div>
+                                <div><i class="fas fa-bed text-km-laranja block mb-1 text-sm"></i> 3 dorms</div>
+                                <div><i class="fas fa-bath text-km-laranja block mb-1 text-sm"></i> 3 banh.</div>
                             </div>
                         </div>
                     </div>
                     <div class="px-5 pb-5">
-                        <button onclick="abrirModalDetalhes('Ref.: 103', 'COBERTURA CHARMOSA - Com linda vista', 'R$ 2.650.000,00', '107 m²', '3 dorms', '3 banh.', 'Cobertura dúplex charmosa com espaço gourmet, churrasqueira privativa e acabamento impecável.', ['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800'])" class="w-full bg-km-claro hover:bg-gray-100 text-km-petroleo border border-gray-200 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-1.5 transition">
+                        <button onclick="abrirModalDetalhes('Ref.: 103', 'COBERTURA CHARMOSA - Com linda vista', 'R$ 2.650.000,00', '107 m²', '3 dorms', '3 banh.', 'Cobertura dúplex charmosa com espaço gourmet, churrasqueira privativa e acabamento impecável.', ['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800'])" class="btn-ripple w-full bg-km-claro hover:bg-gray-100 text-km-petroleo border border-gray-200 text-[11px] sm:text-xs font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition">
                             Ver Detalhes Completos <i class="fas fa-chevron-right text-km-laranja text-[10px]"></i>
                         </button>
                     </div>
@@ -296,74 +320,110 @@
             </div>
         </section>
 
-        <!-- RODAPÉ ORIGINAL NO ESTILO DELA -->
-        <footer id="contato-secao" class="pt-8 pb-10 text-xs font-medium relative z-10 mx-4 sm:mx-8 lg:max-w-7xl lg:mx-auto mb-4">
-            <div class="bg-white/80 backdrop-blur-xl border border-white p-6 sm:p-10 rounded-[2rem] shadow-sm">
-                <div class="flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left">
+        <!-- RODAPÉ EXECUTIVO -->
+        <footer id="contato-secao" class="pt-8 pb-10 text-xs font-medium relative z-10 mx-4 sm:mx-6 lg:max-w-7xl lg:mx-auto mb-6 lg:mb-10">
+            <div class="vidro-fosco p-6 sm:p-10 text-center sm:text-left">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div>
-                        <span class="font-serif text-xl font-bold text-km-petroleo block leading-none">Seu Nome Aqui</span>
-                        <span class="text-[10px] text-km-laranja font-bold uppercase tracking-widest mt-1.5 block">Corretora & Avaliadora Imobiliária</span>
-                        <p class="text-gray-500 mt-1 font-bold">CRECI: Seu Creci Aqui</p>
+                        <span class="font-serif text-xl sm:text-2xl font-bold text-km-petroleo block leading-none">Kelli Martins</span>
+                        <span class="text-[10px] sm:text-[11px] text-km-laranja font-bold uppercase tracking-widest mt-2 block">Corretora & Avaliadora • Alto Padrão</span>
+                        <p class="text-gray-500 mt-1 font-bold">CRECI: 00000-F</p>
                     </div>
                     
                     <div class="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4 font-bold text-km-petroleo">
-                        <a href="#" class="hover:text-km-laranja transition" title="Instagram"><i class="fab fa-instagram text-pink-600 text-xl"></i></a>
-                        <a href="https://wa.me/5511999998888" target="_blank" class="hover:text-km-laranja transition flex items-center gap-1.5 bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100 shadow-sm">
-                            <i class="fab fa-whatsapp text-emerald-600 text-sm"></i> <span class="text-[10px] uppercase tracking-wider text-emerald-700">WhatsApp</span>
+                        <a href="https://wa.me/5511989656941" target="_blank" class="btn-ripple hover:text-km-laranja transition flex items-center gap-2 bg-emerald-50 px-5 py-2.5 rounded-full border border-emerald-100 shadow-sm">
+                            <i class="fab fa-whatsapp text-emerald-600 text-base"></i> <span class="text-[10px] sm:text-[11px] uppercase tracking-wider text-emerald-700">WhatsApp</span>
                         </a>
-                        <a href="tel:0000000000" class="hover:text-km-laranja transition flex items-center gap-1.5 bg-blue-50 px-4 py-2 rounded-full border border-blue-100 shadow-sm">
-                            <i class="fas fa-phone text-blue-600 text-sm"></i> <span class="text-[10px] uppercase tracking-wider text-blue-700">Ligar</span>
+                        <a href="#" class="btn-ripple hover:text-km-laranja transition flex items-center gap-2 bg-pink-50 px-5 py-2.5 rounded-full border border-pink-100 shadow-sm">
+                            <i class="fab fa-instagram text-pink-600 text-base"></i> <span class="text-[10px] sm:text-[11px] uppercase tracking-wider text-pink-700">Instagram</span>
                         </a>
                     </div>
                 </div>
                 
-                <div class="pt-5 mt-5 border-t border-gray-200/80 flex flex-col sm:flex-row justify-between items-center text-gray-400 font-bold text-[10px] uppercase tracking-wider gap-2">
-                    <span>© 2026 Seu Nome Aqui. Todos os direitos reservados.</span>
+                <div class="pt-6 mt-6 border-t border-gray-200/80 flex flex-col sm:flex-row justify-between items-center text-gray-400 font-bold text-[10px] uppercase tracking-wider gap-3">
+                    <span>© 2026 Kelli Martins. Todos os direitos reservados.</span>
                     <span class="text-km-petroleo font-bold tracking-widest">Design por <span class="text-km-laranja underline">eve Design</span></span>
                 </div>
             </div>
         </footer>
 
-        <!-- MODAL INTERATIVO DETALHADO -->
-        <div id="modalDetalhes" class="fixed inset-0 z-[100] hidden bg-km-escuro/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto" onclick="fecharModalDetalhes()">
-            <div class="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative my-auto overflow-hidden border border-white" onclick="event.stopPropagation()">
-                <button onclick="fecharModalDetalhes()" class="absolute top-4 right-4 z-50 text-gray-500 hover:text-white hover:bg-km-laranja w-10 h-10 rounded-full flex items-center justify-center text-lg bg-white/90 shadow transition"><i class="fas fa-times"></i></button>
+        <!-- MÁGICA MOBILE: NAVEGAÇÃO INFERIOR ESTILO APLICATIVO NATIVO -->
+        <div class="lg:hidden fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-xl border-t border-gray-200 shadow-[0_-10px_40px_rgba(0,38,42,0.12)] z-[90] px-2 pt-2 pb-5 flex justify-around items-end rounded-t-[1.5rem] transition-transform">
+            
+            <a href="#" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-laranja w-16 transition-colors">
+                <i class="fas fa-home text-xl mb-1.5"></i><span class="text-[9px] font-bold uppercase tracking-widest">Início</span>
+            </a>
+            
+            <a href="#imoveis" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-laranja w-16 transition-colors">
+                <i class="fas fa-search text-xl mb-1.5"></i><span class="text-[9px] font-bold uppercase tracking-widest">Busca</span>
+            </a>
+            
+            <!-- Botão Flutuante Central (App Style) -->
+            <a href="https://wa.me/5511989656941" target="_blank" class="flex flex-col items-center text-km-laranja w-20 relative group">
+                <div class="bg-km-verdeZap text-white w-16 h-16 rounded-full flex items-center justify-center absolute bottom-6 shadow-xl border-4 border-[#FDFBF7] transition-transform group-hover:scale-105 group-hover:bg-emerald-800">
+                    <i class="fab fa-whatsapp text-3xl"></i>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-widest mt-11 text-km-petroleo">Falar</span>
+            </a>
+            
+            <a href="#sobre" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-laranja w-16 transition-colors">
+                <i class="fas fa-user-tie text-xl mb-1.5"></i><span class="text-[9px] font-bold uppercase tracking-widest">Sobre</span>
+            </a>
+            
+            <a href="#contato-secao" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-laranja w-16 transition-colors">
+                <i class="fas fa-envelope text-xl mb-1.5"></i><span class="text-[9px] font-bold uppercase tracking-widest">Contato</span>
+            </a>
+            
+        </div>
+
+        <!-- WHATSAPP FLUTUANTE PARA DESKTOP (Escondido no mobile) -->
+        <a href="https://wa.me/5511989656941" target="_blank" class="hidden lg:flex btn-ripple fixed bottom-8 right-8 z-[90] w-16 h-16 rounded-full bg-km-verdeZap hover:bg-emerald-800 text-white items-center justify-center text-3xl shadow-2xl border-2 border-white">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+
+        <!-- MODAL INTERATIVO DETALHADO (z-index 100 para cobrir o menu mobile) -->
+        <div id="modalDetalhes" class="fixed inset-0 z-[100] hidden bg-km-escuro/85 backdrop-blur-md flex items-center justify-center p-0 sm:p-4 overflow-y-auto" onclick="fecharModalDetalhes()">
+            <div class="bg-white sm:rounded-3xl max-w-3xl w-full min-h-screen sm:min-h-0 shadow-2xl relative my-auto overflow-hidden sm:border border-white pb-20 sm:pb-0" onclick="event.stopPropagation()">
+                
+                <button onclick="fecharModalDetalhes()" class="absolute top-4 right-4 z-50 btn-ripple text-gray-500 hover:text-white hover:bg-km-laranja w-10 h-10 rounded-full flex items-center justify-center text-lg bg-white/90 backdrop-blur shadow-md transition border border-gray-200"><i class="fas fa-times"></i></button>
                 
                 <div class="relative aspect-video bg-gray-100 overflow-hidden">
                     <img id="modalFotoSrc" src="" alt="Imóvel" class="w-full h-full object-cover">
-                    <span id="modalRefTag" class="absolute bottom-4 left-4 bg-km-petroleo text-white text-xs font-bold px-3 py-1 rounded-lg uppercase"></span>
+                    <span id="modalRefTag" class="absolute bottom-4 left-4 bg-km-petroleo/90 backdrop-blur text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider border border-white/20 shadow-sm"></span>
                 </div>
 
-                <div class="flex gap-2 p-3 bg-km-claro overflow-x-auto scrollbar-hide border-b border-gray-200" id="modalGaleriaMinis"></div>
+                <div class="flex gap-2.5 p-3 sm:p-4 bg-km-claro overflow-x-auto scrollbar-hide border-b border-gray-200" id="modalGaleriaMinis"></div>
 
-                <div class="p-6 space-y-4 text-left">
-                    <h3 id="modalTituloText" class="font-serif text-xl sm:text-2xl font-bold text-km-petroleo"></h3>
-                    <div class="text-2xl font-black text-km-petroleo" id="modalValorText"></div>
+                <div class="p-5 sm:p-8 space-y-5 text-left">
+                    <h3 id="modalTituloText" class="font-serif text-xl sm:text-3xl font-bold text-km-petroleo leading-tight pr-8"></h3>
+                    <div class="text-2xl sm:text-3xl font-black text-km-petroleo drop-shadow-sm" id="modalValorText"></div>
                     
-                    <div class="grid grid-cols-3 gap-2 bg-km-claro p-3 rounded-xl text-center text-xs font-bold text-km-petroleo">
-                        <div>Área: <span id="modalAreaText" class="font-bold text-gray-700"></span></div>
-                        <div>Dorms: <span id="modalDormsText" class="font-bold text-gray-700"></span></div>
-                        <div>Vagas/Banh: <span id="modalVagasText" class="font-bold text-gray-700"></span></div>
+                    <div class="grid grid-cols-3 gap-2 bg-white border border-gray-200 p-3 sm:p-4 rounded-xl text-center text-xs font-bold text-km-petroleo shadow-sm">
+                        <div class="border-r border-gray-200"><span class="block text-gray-400 text-[9px] uppercase tracking-widest mb-0.5">Área Útil</span> <span id="modalAreaText" class="text-sm"></span></div>
+                        <div class="border-r border-gray-200"><span class="block text-gray-400 text-[9px] uppercase tracking-widest mb-0.5">Dormitórios</span> <span id="modalDormsText" class="text-sm"></span></div>
+                        <div><span class="block text-gray-400 text-[9px] uppercase tracking-widest mb-0.5">Vagas</span> <span id="modalVagasText" class="text-sm"></span></div>
                     </div>
 
-                    <div>
-                        <h4 class="text-xs uppercase tracking-widest font-bold text-km-laranja mb-1">Sobre o Imóvel</h4>
-                        <p id="modalDescricaoText" class="text-xs sm:text-sm text-gray-700 font-medium leading-relaxed"></p>
+                    <div class="bg-gray-50/50 p-4 rounded-xl border border-gray-100">
+                        <h4 class="text-[10px] sm:text-xs uppercase tracking-widest font-bold text-km-laranja mb-2"><i class="fas fa-info-circle mr-1"></i> Detalhes da Propriedade</h4>
+                        <p id="modalDescricaoText" class="text-[12px] sm:text-sm text-gray-700 font-medium leading-relaxed"></p>
                     </div>
 
-                    <div class="pt-2 flex flex-col sm:flex-row gap-3">
-                        <button onclick="copiarLinkImovel()" class="flex-1 bg-white hover:bg-gray-50 text-km-petroleo border border-gray-300 font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm">
-                            <i class="fas fa-share-alt text-km-laranja"></i> Copiar Link do Imóvel
+                    <!-- Fixo no bottom no celular, solto no desktop -->
+                    <div class="pt-4 mt-2 sm:mt-4 sm:border-t border-gray-200 flex flex-col sm:flex-row gap-3 fixed bottom-0 left-0 w-full sm:relative sm:w-auto bg-white p-4 sm:p-0 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] sm:shadow-none z-50">
+                        <button onclick="copiarLinkImovel()" class="btn-ripple flex-1 bg-white hover:bg-gray-50 text-km-petroleo border border-gray-300 font-bold py-3.5 sm:py-4 rounded-xl text-[11px] sm:text-xs flex items-center justify-center gap-2 transition shadow-sm">
+                            <i class="fas fa-share-alt text-km-laranja"></i> Copiar Link
                         </button>
-                        <a id="btnZapModal" href="#" target="_blank" class="flex-[2] bg-km-verdeZap hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-md">
-                            <i class="fab fa-whatsapp text-lg"></i> Falar com Corretor(a) no WhatsApp
+                        <a id="btnZapModal" href="https://wa.me/5511989656941" target="_blank" class="btn-ripple flex-[2] bg-km-verdeZap hover:bg-emerald-800 text-white font-bold py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-md">
+                            <i class="fab fa-whatsapp text-lg"></i> Falar com a Kelli
                         </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SCRIPTS DE SWIPE E MODAL -->
+        <!-- SCRIPTS -->
         <script>
             window.touchState = {};
 
@@ -396,7 +456,7 @@
             window.fimArrasto = function(e, id) {
                 const state = window.touchState[id];
                 if (!state) return;
-                state.element.style.transition = 'transform 0.35s ease-out';
+                state.element.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 const diffX = state.currentX - state.startX;
                 if (Math.abs(diffX) > 40) {
                     if (diffX < 0 && state.slideAtual < state.total - 1) state.slideAtual++;
@@ -438,16 +498,25 @@
 
                 const miniaturasContainer = document.getElementById('modalGaleriaMinis');
                 miniaturasContainer.innerHTML = '';
-                fotosArray.forEach(fotoUrl => {
+                fotosArray.forEach((fotoUrl, index) => {
                     let imgMini = document.createElement('img');
                     imgMini.src = fotoUrl;
-                    imgMini.className = "w-14 h-14 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:border-km-laranja transition flex-shrink-0 shadow-sm";
-                    imgMini.onclick = () => { document.getElementById('modalFotoSrc').src = fotoUrl; };
+                    imgMini.className = `w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-xl cursor-pointer border-[3px] transition-all flex-shrink-0 ${index === 0 ? 'border-km-laranja scale-105' : 'border-transparent opacity-80 hover:opacity-100 hover:border-km-petroleo'}`;
+                    
+                    imgMini.onclick = (e) => { 
+                        document.getElementById('modalFotoSrc').src = fotoUrl; 
+                        // Reseta bordas
+                        Array.from(miniaturasContainer.children).forEach(child => {
+                            child.className = "w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-xl cursor-pointer border-[3px] transition-all flex-shrink-0 border-transparent opacity-80 hover:opacity-100 hover:border-km-petroleo";
+                        });
+                        // Ativa a clicada
+                        e.target.className = "w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-xl cursor-pointer border-[3px] transition-all flex-shrink-0 border-km-laranja scale-105";
+                    };
                     miniaturasContainer.appendChild(imgMini);
                 });
 
                 let msg = `Olá! Vi o imóvel ${ref} (${titulo}) no site e gostaria de mais informações.`;
-                document.getElementById('btnZapModal').href = `https://wa.me/5511999998888?text=${encodeURIComponent(msg)}`;
+                document.getElementById('btnZapModal').href = `https://wa.me/5511989656941?text=${encodeURIComponent(msg)}`;
 
                 document.getElementById('modalDetalhes').classList.remove('hidden');
                 document.body.classList.add('overflow-hidden');
