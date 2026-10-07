@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kelli Martins | Imóveis de Alto Padrão</title>
+        <title>Seu Nome Aqui | Imóveis de Alto Padrão</title>
         
         <!-- Fonts de Alta Sofisticação -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,6 +50,8 @@
                 background-size: cover; background-position: center;
             }
             .card-hover:hover { transform: translateY(-4px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+            .scrollbar-hide::-webkit-scrollbar { display: none; }
+            .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         </style>
     </head>
     <body class="antialiased selection:bg-gold/20 selection:text-gold-dark">
@@ -59,11 +61,11 @@
             <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
                 <div class="flex items-center gap-2 font-light">
                     <i class="fas fa-location-dot text-gold"></i>
-                    <span>Itaim Bibi, Jardins, Faria Lima & Zona Sul - SP</span>
+                    <span>Suas Regiões Aqui (Ex: Itaim Bibi, Jardins, Zona Sul - SP)</span>
                 </div>
                 <div class="flex items-center gap-6 font-medium">
-                    <a href="https://instagram.com" target="_blank" class="hover:text-gold transition flex items-center gap-1.5"><i class="fab fa-instagram text-gold"></i> @kellimartinsimoveis</a>
-                    <a href="https://wa.me/5511984489760" target="_blank" class="hover:text-gold transition flex items-center gap-1.5"><i class="fab fa-whatsapp text-emerald-400"></i> (11) 98448-9760</a>
+                    <span class="hover:text-gold transition flex items-center gap-1.5"><i class="fab fa-instagram text-gold"></i> @seuinstagramaqui</span>
+                    <span class="hover:text-gold transition flex items-center gap-1.5"><i class="fab fa-whatsapp text-emerald-400"></i> (00) 00000-0000</span>
                 </div>
             </div>
         </div>
@@ -75,11 +77,11 @@
                 <div class="flex items-center gap-4">
                     <a href="/" class="flex items-center gap-3.5 group">
                         <div class="w-11 h-11 rounded-full bg-luxury-100 flex items-center justify-center font-serif font-bold text-luxury-900 text-base border border-gold/40 group-hover:scale-105 transition">
-                            KM
+                            SN
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-serif text-xl sm:text-2xl font-bold text-luxury-900 tracking-wider uppercase">Kelli Martins</span>
-                            <span class="text-[9px] text-gold uppercase tracking-[0.25em] font-semibold">Corretora & Avaliadora • CRECI 59.289F</span>
+                            <span class="font-serif text-xl sm:text-2xl font-bold text-luxury-900 tracking-wider uppercase">Seu Nome Aqui</span>
+                            <span class="text-[9px] text-gold uppercase tracking-[0.25em] font-semibold">Corretora & Avaliadora • CRECI Seu CRECI Aqui</span>
                         </div>
                     </a>
                 </div>
@@ -94,7 +96,7 @@
                         <li><a href="#imoveis" class="hover:text-gold transition py-2 block">Imóveis</a></li>
                         <li><a href="#comercializados" class="hover:text-gold transition py-2 block">Comercializados</a></li>
                         <li><a href="#fique-por-dentro" class="hover:text-gold transition py-2 block">Fique por dentro</a></li>
-                        <li><a href="mailto:kellimartins0703@gmail.com" class="bg-luxury-900 text-white px-5 py-2.5 hover:bg-gold hover:text-luxury-900 transition duration-300 block text-center">Fale conosco</a></li>
+                        <li><a href="#contato-secao" class="bg-luxury-900 text-white px-5 py-2.5 hover:bg-gold hover:text-luxury-900 transition duration-300 block text-center">Fale conosco</a></li>
                     </ul>
                 </nav>
             </div>
@@ -104,7 +106,7 @@
         <section class="relative bg-hero-luxury min-h-[85vh] flex items-center justify-center py-20 px-4 sm:px-8">
             <div class="max-w-5xl mx-auto text-center w-full relative z-10">
                 <span class="inline-block text-gold text-[10px] uppercase tracking-[0.35em] font-bold mb-4 px-4 py-1.5 border border-gold/40 bg-luxury-950/60 backdrop-blur-sm">
-                    Exclusividade no Itaim Bibi, Jardins & Zona Sul
+                    Exclusividade em Suas Regiões de Atuação
                 </span>
                 <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl text-white font-bold leading-tight mb-6 tracking-wide drop-shadow-md">
                     Conectando Você ao Imóvel Ideal com Sofisticação
@@ -118,7 +120,7 @@
                     <form onsubmit="event.preventDefault(); document.getElementById('imoveis').scrollIntoView({behavior: 'smooth'});" class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
                         <div>
                             <label class="block text-[10px] uppercase tracking-widest text-luxury-900 font-bold mb-1.5">Filtrar por Termo</label>
-                            <input type="text" id="inputBuscaTopo" oninput="filtrarImoveisTexto(this.value)" placeholder="Ex: Itaim Bibi, 200m²..." class="w-full bg-luxury-50 border border-luxury-200 p-3 text-xs text-luxury-800 focus:outline-none focus:border-gold font-medium">
+                            <input type="text" id="inputBuscaTopo" oninput="filtrarImoveisTexto(this.value)" placeholder="Ex: Região, 200m²..." class="w-full bg-luxury-50 border border-luxury-200 p-3 text-xs text-luxury-800 focus:outline-none focus:border-gold font-medium">
                         </div>
                         <div>
                             <label class="block text-[10px] uppercase tracking-widest text-luxury-900 font-bold mb-1.5">Dormitórios</label>
@@ -145,7 +147,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-5 relative">
                         <div class="relative z-10 rounded-sm overflow-hidden shadow-2xl border-4 border-white">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Kelli Martins" class="w-full h-[480px] object-cover">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Corretora" class="w-full h-[480px] object-cover">
                         </div>
                         <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-gold/15 -z-0 hidden sm:block"></div>
                     </div>
@@ -155,7 +157,7 @@
                             Uma trajetória sólida construída com atendimento humanizado e rigor técnico
                         </h2>
                         <p class="text-luxury-800 text-sm sm:text-base font-light leading-relaxed">
-                            Ao longo dos anos, Kelli Martins construiu uma reputação impecável baseada em dedicação total ao cliente, profundo conhecimento do mercado imobiliário de luxo e conferência rigorosa de certidões.
+                            Ao longo dos anos, Seu Nome Aqui construiu uma reputação impecável baseada em dedicação total ao cliente, profundo conhecimento do mercado imobiliário de luxo e conferência rigorosa de certidões.
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
                             <div class="border-l-2 border-gold pl-4 bg-white p-4 shadow-sm">
@@ -179,23 +181,23 @@
                     <span class="text-gold text-xs uppercase tracking-[0.25em] font-bold block mb-1">Vitrine Imobiliária</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-bold text-luxury-900 tracking-tight">Resultado da busca</h2>
                 </div>
-                <span id="contadorResultados" class="text-xs text-luxury-700 font-semibold bg-luxury-100 px-4 py-2 rounded-full border border-luxury-200">Exibindo 9 imóveis selecionados</span>
+                <span id="contadorResultados" class="text-xs text-luxury-700 font-semibold bg-luxury-100 px-4 py-2 rounded-full border border-luxury-200">Exibindo 6 imóveis selecionados</span>
             </div> 
 
-            <!-- GRID DE IMÓVEIS (BASE ORIGINAL MELHORADA COM DESIGN CHIQUE E INTERATIVIDADE) -->
+            <!-- GRID DE IMÓVEIS COM FOTOS DE REFERÊNCIA E MODAL DETALHADO -->
             <div id="gridImoveis" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
                 
                 <!-- Item 1 -->
-                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="itaim" data-quartos="3" data-texto="itaim bibi o melhor valor por m2 do bairro">
-                    <a href="https://kellimartins.com.br/imovel/detalhe?id=19" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 19', 'ITAIM BIBI - O melhor valor por m² do bairro.', 'R$ 3.400.000,00', '200 m²', '3 dorms', '3', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800');">
+                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="regiao" data-quartos="3" data-texto="regiao nobre o melhor valor por m2">
+                    <a href="#" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 101', 'SUA REGIÃO NOBRE - O melhor valor por m² da região.', 'R$ 3.400.000,00', '200 m²', '3 dorms', '3 suítes', 'Residencial espetacular localizado na região mais nobre. Conta com acabamento em mármore importado, projeto de iluminação exclusivo, varanda gourmet integrada e lazer completo no condomínio.', ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800']);">
                         <div class="foto relative overflow-hidden rounded-xl aspect-[4/3] bg-luxury-100">
                             <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
-                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 19</span>
+                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 101</span>
                             <span class="absolute top-3 right-3 bg-gold text-luxury-950 text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest">Venda</span>
                         </div>
                         <div class="mt-4 min-h-[48px]">
                             <p class="font-serif font-bold text-sm text-luxury-900 leading-snug">
-                                ITAIM BIBI - O melhor valor por m² do bairro.
+                                SUA REGIÃO NOBRE - O melhor valor por m² da região.
                             </p>
                         </div>
                         <div class="border-t border-luxury-100 pt-4 mt-3">
@@ -213,16 +215,16 @@
                 </div>
 
                 <!-- Item 2 -->
-                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="itaim" data-quartos="3" data-texto="itaim bibi 122m2 melhor vista aconchegante">
-                    <a href="https://kellimartins.com.br/imovel/detalhe?id=18" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 18', 'Itaim Bibi - Tenha uma das MELHORES vista do bairro em 122m² em um apartamento aconchegante e com muita luminosidade.', 'R$ 2.000.000,00', '122 m²', '3 dorms', '2', 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800');">
+                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="regiao" data-quartos="3" data-texto="vista privilegiada 122m2 aconchegante">
+                    <a href="#" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 102', 'VISTA PRIVILEGIADA - 122m² em um apartamento aconchegante e com muita luminosidade.', 'R$ 2.000.000,00', '122 m²', '3 dorms', '2 vagas', 'Tenha uma das melhores vistas da região em um apartamento aconchegante, planta inteligente, excelente iluminação natural e ótima ventilação em todos os ambientes.', ['https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800']);">
                         <div class="foto relative overflow-hidden rounded-xl aspect-[4/3] bg-luxury-100">
                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
-                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 18</span>
+                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 102</span>
                             <span class="absolute top-3 right-3 bg-gold text-luxury-950 text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest">Venda</span>
                         </div>
                         <div class="mt-4 min-h-[48px]">
                             <p class="font-serif font-bold text-sm text-luxury-900 leading-snug">
-                                Itaim Bibi - Tenha uma das MELHORES vista do bairro em 122m²...
+                                VISTA PRIVILEGIADA - 122m² aconchegante e iluminado.
                             </p>
                         </div>
                         <div class="border-t border-luxury-100 pt-4 mt-3">
@@ -240,16 +242,16 @@
                 </div>
 
                 <!-- Item 3 -->
-                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="itaim" data-quartos="3" data-texto="itaim bibi conforto praticidade apartamento funcional">
-                    <a href="https://kellimartins.com.br/imovel/detalhe?id=17" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 17', 'ITAIM BIBI - Conforto e praticidade!!!! É o conceito, desse apartamento muito bem localizado e uma planta funcional.', 'R$ 2.370.000,00', '120 m²', '3 dorms', '4', 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800');">
+                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="regiao" data-quartos="3" data-texto="conforto e praticidade planta funcional">
+                    <a href="#" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 103', 'CONFORTO E PRATICIDADE - Apartamento muito bem localizado com planta funcional.', 'R$ 2.370.000,00', '120 m²', '3 dorms', '4 banh.', 'Imóvel pensado para quem busca praticidade no dia a dia sem abrir mão do conforto. Localização privilegiada próxima aos melhores pontos da cidade.', ['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800']);">
                         <div class="foto relative overflow-hidden rounded-xl aspect-[4/3] bg-luxury-100">
                             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
-                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 17</span>
+                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 103</span>
                             <span class="absolute top-3 right-3 bg-gold text-luxury-950 text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest">Venda</span>
                         </div>
                         <div class="mt-4 min-h-[48px]">
                             <p class="font-serif font-bold text-sm text-luxury-900 leading-snug">
-                                ITAIM BIBI - Conforto e praticidade com planta funcional.
+                                CONFORTO E PRATICIDADE - Localização privilegiada.
                             </p>
                         </div>
                         <div class="border-t border-luxury-100 pt-4 mt-3">
@@ -267,16 +269,16 @@
                 </div>
 
                 <!-- Item 4 -->
-                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="vila nova" data-quartos="1" data-texto="vila nova conceicao locacao studio novo">
-                    <a href="https://kellimartins.com.br/imovel/detalhe?id=15" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 15', 'VILA NOVA CONCEIÇÃO - LOCAÇÃO. STUDIO NOVO!!!', 'R$ 4.800,00 / mês', '27 m²', '1 dorm', '1', 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800');">
+                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="regiao" data-quartos="1" data-texto="locacao studio novo">
+                    <a href="#" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 104', 'LOCAÇÃO - STUDIO NOVO COM LAZER COMPLETO', 'R$ 4.800,00 / mês', '27 m²', '1 dorm', '1 vaga', 'Studio moderno recém-entregue, totalmente equipado, ideal para profissionais que buscam praticidade e sofisticação na mesma localização.', ['https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800']);">
                         <div class="foto relative overflow-hidden rounded-xl aspect-[4/3] bg-luxury-100">
                             <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
-                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 15</span>
+                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 104</span>
                             <span class="absolute top-3 right-3 bg-luxury-900 text-white text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest">Aluguel</span>
                         </div>
                         <div class="mt-4 min-h-[48px]">
                             <p class="font-serif font-bold text-sm text-luxury-900 leading-snug">
-                                VILA NOVA CONCEIÇÃO - LOCAÇÃO. STUDIO NOVO!!!
+                                LOCAÇÃO - STUDIO NOVO COM LAZER COMPLETO
                             </p>
                         </div>
                         <div class="border-t border-luxury-100 pt-4 mt-3">
@@ -294,16 +296,16 @@
                 </div>
 
                 <!-- Item 5 -->
-                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="itaim" data-quartos="2" data-texto="itaim bibi reforma arquiteta artacho jurado">
-                    <a href="https://kellimartins.com.br/imovel/detalhe?id=14" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 14', 'ITAIM BIBI - Venda - REFORMADÍSSIMO pela arquiteta Artacho Jurado.', 'R$ 1.490.000,00', '87 m²', '2 dorms', '3', 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800');">
+                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="regiao" data-quartos="2" data-texto="venda reformadissimo projeto exclusivo">
+                    <a href="#" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 105', 'REFORMADÍSSIMO - Projeto exclusivo assinado por arquiteta renomada.', 'R$ 1.490.000,00', '87 m²', '2 dorms', '3 banh.', 'Imóvel com reforma de alto padrão, marcenaria sob medida, iluminação planejada e acabamento impecável em todos os detalhes.', ['https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800']);">
                         <div class="foto relative overflow-hidden rounded-xl aspect-[4/3] bg-luxury-100">
                             <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
-                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 14</span>
+                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 105</span>
                             <span class="absolute top-3 right-3 bg-gold text-luxury-950 text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest">Venda</span>
                         </div>
                         <div class="mt-4 min-h-[48px]">
                             <p class="font-serif font-bold text-sm text-luxury-900 leading-snug">
-                                ITAIM BIBI - Venda - REFORMADÍSSIMO pela arquiteta Artacho Jurado.
+                                REFORMADÍSSIMO - Projeto exclusivo assinado por arquiteta.
                             </p>
                         </div>
                         <div class="border-t border-luxury-100 pt-4 mt-3">
@@ -321,16 +323,16 @@
                 </div>
 
                 <!-- Item 6 -->
-                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="itaim" data-quartos="3" data-texto="itaim bibi edf carpeaux um dos melhores apartamentos">
-                    <a href="https://kellimartins.com.br/imovel/detalhe?id=12" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 12', 'ITAIM BIBI - UM DOS MELHORES APARTAMENTOS NO BAIRRO - Edifício CARPEAUX.', 'R$ 2.650.000,00', '107 m²', '3 dorms', '3', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800');">
+                <div class="card-imovel item bg-white border border-luxury-200 rounded-2xl p-4 flex flex-col justify-between shadow-sm card-hover cursor-pointer" data-bairro="regiao" data-quartos="3" data-texto="um dos melhores apartamentos no bairro edifficio de referencia">
+                    <a href="#" onclick="event.preventDefault(); abrirModalDetalhes('Ref.: 106', 'EDIFÍCIO DE REFERÊNCIA - Um dos melhores apartamentos do bairro.', 'R$ 2.650.000,00', '107 m²', '3 dorms', '3 banh.', 'Edifício cobiçado com portaria 24h, segurança reforçada e excelente área de convivência. Apartamento espaçoso com cômodos bem distribuídos.', ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800']);">
                         <div class="foto relative overflow-hidden rounded-xl aspect-[4/3] bg-luxury-100">
                             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover hover:scale-105 transition duration-700">
-                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 12</span>
+                            <span class="codigo absolute bottom-3 left-3 bg-luxury-950/90 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ref.: 106</span>
                             <span class="absolute top-3 right-3 bg-gold text-luxury-950 text-[10px] font-bold px-2.5 py-1 uppercase tracking-widest">Venda</span>
                         </div>
                         <div class="mt-4 min-h-[48px]">
                             <p class="font-serif font-bold text-sm text-luxury-900 leading-snug">
-                                ITAIM BIBI - UM DOS MELHORES APARTAMENTOS NO BAIRRO - Edifício CARPEAUX.
+                                EDIFÍCIO DE REFERÊNCIA - Um dos melhores apartamentos.
                             </p>
                         </div>
                         <div class="border-t border-luxury-100 pt-4 mt-3">
@@ -367,8 +369,8 @@
                         <span class="text-[11px] text-luxury-600 uppercase tracking-widest font-semibold">Segurança Jurídica</span>
                     </div>
                     <div class="bg-white p-6 border border-luxury-200 shadow-sm rounded-2xl">
-                        <span class="block text-2xl font-serif font-bold text-luxury-900 mb-1">Zona Sul</span>
-                        <span class="text-[11px] text-luxury-600 uppercase tracking-widest font-semibold">Área Nobre SP</span>
+                        <span class="block text-2xl font-serif font-bold text-luxury-900 mb-1">Área Nobre</span>
+                        <span class="text-[11px] text-luxury-600 uppercase tracking-widest font-semibold">Região Selecionada</span>
                     </div>
                     <div class="bg-white p-6 border border-luxury-200 shadow-sm rounded-2xl">
                         <span class="block text-2xl font-serif font-bold text-luxury-900 mb-1">Exclusivo</span>
@@ -383,7 +385,7 @@
             <div class="max-w-4xl mx-auto px-4 text-center">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-bold block mb-3">Newsletter Seleta</span>
                 <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-4">Fique por dentro das oportunidades!</h2>
-                <p class="text-luxury-300 text-sm font-light mb-8 max-w-xl mx-auto">Cadastre seu e-mail para receber em primeira mão os lançamentos de alto padrão em São Paulo.</p>
+                <p class="text-luxury-300 text-sm font-light mb-8 max-w-xl mx-auto">Cadastre seu e-mail para receber em primeira mão os lançamentos de alto padrão.</p>
                 <form onsubmit="event.preventDefault(); alert('Inscrição realizada com sucesso!');" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                     <input type="email" placeholder="Digite seu melhor e-mail" required class="bg-luxury-950 border border-luxury-800 px-4 py-3.5 text-sm text-white placeholder-luxury-500 focus:outline-none focus:border-gold flex-grow font-light rounded-xl">
                     <button type="submit" class="bg-gold text-luxury-950 font-bold px-6 py-3.5 uppercase text-xs tracking-widest hover:bg-white transition rounded-xl">Inscrever</button>
@@ -391,43 +393,43 @@
             </div>
         </section>
 
-        <!-- RODAPÉ ORIGINAL DE CÓDIGO MELHORADO COM DESIGN CHIQUE -->
-        <div class="relative z-10 bg-luxury-950 text-white pt-16 pb-12 mt-16 rounded-t-[2.5rem] px-6 sm:px-12 border-t border-luxury-900">
+        <!-- RODAPÉ -->
+        <div id="contato-secao" class="relative z-10 bg-luxury-950 text-white pt-16 pb-12 mt-16 rounded-t-[2.5rem] px-6 sm:px-12 border-t border-luxury-900">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-luxury-900">
                 <div class="flex-col">
                     <span class="text-xs uppercase tracking-[0.2em] text-gold font-bold block mb-3">Redes sociais</span>
-                    <a href="https://www.instagram.com/kellimartinsimoveis/" target="_blank" class="inline-flex items-center gap-2 bg-luxury-900 px-4 py-2.5 rounded-xl hover:bg-gold hover:text-luxury-950 transition">
+                    <a href="#" target="_blank" class="inline-flex items-center gap-2 bg-luxury-900 px-4 py-2.5 rounded-xl hover:bg-gold hover:text-luxury-950 transition">
                         <i class="fab fa-instagram text-base"></i> <span class="text-xs font-semibold">Instagram Oficial</span>
                     </a>
                 </div>
                 <div class="flex-col">
-                    <a href="https://api.whatsapp.com/send?phone=+5511984489760" target="_blank" class="group block">
+                    <a href="https://api.whatsapp.com/send?phone=5511999998888" target="_blank" class="group block">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold shadow-md">
                                 <i class="fab fa-whatsapp text-lg"></i>
                             </div>
                             <div class="flex-col">
                                 <div class="text-[10px] uppercase font-bold text-luxury-400">Whatsapp</div>
-                                <strong class="text-sm group-hover:text-gold transition">11 98448-9760</strong>
+                                <strong class="text-sm group-hover:text-gold transition">(00) 00000-0000</strong>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="flex-col">
-                    <a href="tel:11984489760" class="group block">
+                    <a href="tel:0000000000" class="group block">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-gold text-luxury-950 flex items-center justify-center font-bold shadow-md">
                                 <i class="fas fa-phone text-sm"></i>
                             </div>
                             <div class="flex-col">
                                 <div class="text-[10px] uppercase font-bold text-luxury-400">Ligue agora</div>
-                                <strong class="text-sm group-hover:text-gold transition">11 98448-9760</strong>
+                                <strong class="text-sm group-hover:text-gold transition">(00) 00000-0000</strong>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="flex-col">
-                    <a href="mailto:kellimartins0703@gmail.com" class="group block">
+                    <a href="mailto:contato@seudominio.com.br" class="group block">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-luxury-900 text-gold flex items-center justify-center font-bold border border-gold/30">
                                 <i class="fas fa-envelope text-sm"></i>
@@ -444,29 +446,48 @@
 
         <!-- COPYRIGHT & ASSINATURA -->
         <div class="bg-black text-white p-6 rounded-b-[2.5rem] max-w-7xl mx-auto mb-6 flex flex-col sm:flex-row justify-between items-center text-xs gap-2 px-8">
-            <div>© 2026 Kelli Martins. Todos os direitos reservados • CRECI 59.289F</div>
+            <div>© 2026 Seu Nome Aqui. Todos os direitos reservados • CRECI Seu CRECI Aqui</div>
             <div>Design Exclusivo por <a href="#" class="text-gold font-bold underline">eve.desi_gn</a></div>
         </div>
 
-        <!-- MODAL INTERATIVO PARA OS IMÓVEIS (FUNCIONALIDADE EXTRA DE LUXO) -->
+        <!-- MODAL INTERATIVO DETALHADO (COM GALERIA DE FOTOS, DESCRIÇÃO E COPIAR LINK) -->
         <div id="modalDetalhes" class="fixed inset-0 z-[100] hidden bg-luxury-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto" onclick="fecharModalDetalhes()">
-            <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl relative my-auto overflow-hidden border border-luxury-200" onclick="event.stopPropagation()">
+            <div class="bg-white rounded-3xl max-w-3xl w-full shadow-2xl relative my-auto overflow-hidden border border-luxury-200" onclick="event.stopPropagation()">
                 <button onclick="fecharModalDetalhes()" class="absolute top-4 right-4 z-50 text-gray-500 hover:text-white hover:bg-gold w-10 h-10 rounded-full flex items-center justify-center text-lg bg-gray-100 shadow transition"><i class="fas fa-times"></i></button>
-                <div class="relative aspect-video bg-gray-100">
+                
+                <!-- Foto em Destaque -->
+                <div class="relative aspect-video bg-gray-100 overflow-hidden">
                     <img id="modalFotoSrc" src="" alt="Imóvel" class="w-full h-full object-cover">
                     <span id="modalRefTag" class="absolute bottom-4 left-4 bg-luxury-950 text-white text-xs font-bold px-3 py-1 rounded"></span>
                 </div>
-                <div class="p-6 space-y-4">
+
+                <!-- Miniaturas de Referência / Galeria -->
+                <div class="flex gap-2 p-4 bg-luxury-50 overflow-x-auto scrollbar-hide border-b border-luxury-100" id="modalGaleriaMinis"></div>
+
+                <!-- Conteúdo Informativo Detalhado -->
+                <div class="p-6 space-y-4 text-left">
                     <h3 id="modalTituloText" class="font-serif text-xl sm:text-2xl font-bold text-luxury-900"></h3>
                     <div class="text-2xl font-serif font-bold text-luxury-900" id="modalValorText"></div>
+                    
                     <div class="grid grid-cols-3 gap-2 bg-luxury-50 p-3 rounded-xl text-center text-xs font-semibold text-luxury-800">
                         <div>Área: <span id="modalAreaText" class="font-bold"></span></div>
                         <div>Dorms: <span id="modalDormsText" class="font-bold"></span></div>
                         <div>Vagas/Banh: <span id="modalVagasText" class="font-bold"></span></div>
                     </div>
-                    <a id="btnZapModal" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition shadow-md">
-                        <i class="fab fa-whatsapp text-lg"></i> Falar com a Kelli no WhatsApp
-                    </a>
+
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest font-bold text-gold mb-1">Sobre o Imóvel</h4>
+                        <p id="modalDescricaoText" class="text-xs sm:text-sm text-luxury-700 font-light leading-relaxed"></p>
+                    </div>
+
+                    <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                        <button onclick="copiarLinkImovel()" class="flex-1 bg-luxury-100 hover:bg-luxury-200 text-luxury-900 font-bold py-3.5 rounded-xl text-xs flex items-center justify-center gap-2 transition border border-luxury-200">
+                            <i class="fas fa-share-alt text-gold"></i> Copiar Link do Imóvel
+                        </button>
+                        <a id="btnZapModal" href="#" target="_blank" class="flex-[2] bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-md">
+                            <i class="fab fa-whatsapp text-lg"></i> Falar com Corretor(a) no WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -502,17 +523,33 @@
                 document.getElementById('contadorResultados').innerText = `Exibindo ${visiveis} imóvel(is) encontrado(s)`;
             }
 
-            function abrirModalDetalhes(ref, titulo, valor, area, dorms, vagas, foto) {
+            function abrirModalDetalhes(ref, titulo, valor, area, dorms, vagas, descricao, fotosArray) {
                 document.getElementById('modalRefTag').innerText = ref;
                 document.getElementById('modalTituloText').innerText = titulo;
                 document.getElementById('modalValorText').innerText = valor;
                 document.getElementById('modalAreaText').innerText = area;
                 document.getElementById('modalDormsText').innerText = dorms;
                 document.getElementById('modalVagasText').innerText = vagas;
-                document.getElementById('modalFotoSrc').src = foto;
+                document.getElementById('modalDescricaoText').innerText = descricao;
+                
+                // Foto principal inicial
+                document.getElementById('modalFotoSrc').src = fotosArray[0];
 
-                let msg = `Olá, Kelli! Vi o imóvel ${ref} (${titulo}) no site e gostaria de mais informações.`;
-                document.getElementById('btnZapModal').href = `https://wa.me/5511984489760?text=${encodeURIComponent(msg)}`;
+                // Gerar miniaturas da galeria
+                const miniaturasContainer = document.getElementById('modalGaleriaMinis');
+                miniaturasContainer.innerHTML = '';
+                fotosArray.forEach(fotoUrl => {
+                    let imgMini = document.createElement('img');
+                    imgMini.src = fotoUrl;
+                    imgMini.className = "w-16 h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-gold transition flex-shrink-0 shadow-sm";
+                    imgMini.onclick = () => {
+                        document.getElementById('modalFotoSrc').src = fotoUrl;
+                    };
+                    miniaturasContainer.appendChild(imgMini);
+                });
+
+                let msg = `Olá! Vi o imóvel ${ref} (${titulo}) no site e gostaria de mais informações.`;
+                document.getElementById('btnZapModal').href = `https://wa.me/5511999998888?text=${encodeURIComponent(msg)}`;
 
                 document.getElementById('modalDetalhes').classList.remove('hidden');
                 document.body.classList.add('overflow-hidden');
@@ -521,6 +558,11 @@
             function fecharModalDetalhes() {
                 document.getElementById('modalDetalhes').classList.add('hidden');
                 document.body.classList.remove('overflow-hidden');
+            }
+
+            function copiarLinkImovel() {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link copiado com sucesso! Pode colar no WhatsApp.');
             }
         </script>
     </body>
