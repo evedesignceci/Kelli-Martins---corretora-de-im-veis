@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kelli Martins | Imóveis de Alto Padrão - São Paulo</title>
+    <title>Seu Nome Aqui | Imóveis de Alto Padrão - São Paulo</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +21,8 @@
                 extend: {
                     colors: {
                         km: {
-                            douradoOriginal: '#C5A850', // Mantendo o tom dourado/amarelado original do site dela
-                            petroleoEscuro: '#0B131A', // Rodapé escuro original
+                            douradoOriginal: '#C5A850', 
+                            petroleoEscuro: '#0B131A', 
                             fundoCinza: '#F4F5F7',
                             verdeZap: '#15803D'
                         }
@@ -63,27 +63,25 @@
 <body class="antialiased selection:bg-km-douradoOriginal selection:text-white pb-mobile-nav relative">
 
     <!-- ========================================== -->
-    <!-- TOPO / HEADER ORIGINAL DELA (REFINADO)     -->
+    <!-- TOPO / HEADER ORIGINAL (SEM DADOS PESSOAIS) -->
     <!-- ========================================== -->
     <header class="bg-white border-b border-gray-200/80 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex justify-between items-center">
             
-            <!-- Logo e CRECI idênticos ao site original -->
             <div class="flex items-center gap-6">
                 <a href="#" class="flex flex-col">
-                    <span class="font-serif text-2xl font-bold tracking-tight text-gray-900">Kelli Martins</span>
+                    <span class="font-serif text-2xl font-bold tracking-tight text-gray-900">Seu Nome Aqui</span>
                     <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Corretora de Imóveis</span>
                 </a>
-                <span class="hidden sm:inline-block border-l border-gray-300 pl-6 text-xs text-gray-500 font-semibold tracking-wider">CRECI 59.289F</span>
+                <span class="hidden sm:inline-block border-l border-gray-300 pl-6 text-xs text-gray-500 font-semibold tracking-wider">CRECI 00.000F</span>
             </div>
 
-            <!-- Menu Desktop -->
             <nav class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider text-gray-700">
                 <a href="#sobre" class="hover:text-km-douradoOriginal transition">Sobre nós</a>
                 <a href="#imoveis" class="hover:text-km-douradoOriginal transition">Imóveis</a>
                 <a href="#" class="text-gray-400 cursor-not-allowed">Imóveis comercializados</a>
                 <a href="#" class="text-gray-400 cursor-not-allowed">Fique por dentro !</a>
-                <a href="https://wa.me/5511989656941" target="_blank" class="bg-gray-900 hover:bg-km-douradoOriginal text-white px-5 py-2.5 rounded-full transition shadow-sm flex items-center gap-2">
+                <a href="#" class="bg-gray-900 hover:bg-km-douradoOriginal text-white px-5 py-2.5 rounded-full transition shadow-sm flex items-center gap-2">
                     <i class="fab fa-whatsapp text-sm"></i> Fale conosco
                 </a>
             </nav>
@@ -91,16 +89,14 @@
     </header>
 
     <!-- ========================================== -->
-    <!-- BANNER DESTAQUE COM CAIXA DE BUSCA FLUTUANTE -->
+    <!-- BANNER DESTAQUE COM CAIXA DE BUSCA         -->
     <!-- ========================================== -->
     <section class="relative bg-gray-900 h-[380px] sm:h-[420px] flex items-center justify-center overflow-hidden">
-        <!-- Foto de fundo urbana (mesmo estilo do print) -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1600" alt="São Paulo Itaim Bibi" class="w-full h-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-black/40"></div>
         </div>
 
-        <!-- Caixa de Busca Flutuante Central (Igualzinha à original, mas com acabamento moderno) -->
         <div class="relative z-10 max-w-2xl w-full mx-4 bg-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/40">
             <h2 class="text-xl sm:text-2xl text-center font-serif font-bold text-gray-900 mb-6">Encontre seu imóvel</h2>
             <div class="flex flex-col sm:flex-row gap-3">
@@ -118,7 +114,7 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- RESULTADO DA BUSCA / IMÓVEIS (SEU LAYOUT)  -->
+    <!-- RESULTADO DA BUSCA / IMÓVEIS               -->
     <!-- ========================================== -->
     <section id="imoveis" class="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-10">
@@ -151,9 +147,9 @@
                     </div>
                 </div>
                 <div class="px-5 pb-5">
-                    <a href="https://wa.me/5511989656941?text=Olá! Tenho interesse na Ref. 19." target="_blank" class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
-                        Ver Detalhes no WhatsApp <i class="fab fa-whatsapp text-km-verdeZap"></i>
-                    </a>
+                    <button class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
+                        Ver Detalhes <i class="fas fa-chevron-right text-[10px]"></i>
+                    </button>
                 </div>
             </div>
 
@@ -165,7 +161,7 @@
                         <span class="absolute bottom-3 left-3 bg-km-douradoOriginal text-white text-[10px] font-bold px-3 py-1 rounded-md uppercase tracking-wider">Ref.: 18</span>
                     </div>
                     <div class="p-5">
-                        <p class="text-xs text-gray-700 font-medium leading-relaxed line-clamp-2">Itaim Bibi - Tenha uma das MELHORES vistas do bairro em 122m².</p>
+                        <p class="text-xs text-gray-700 font-medium leading-relaxed line-clamp-2">Itaim Bibi - Tenha uma das MELHORES vista do bairro em 122m².</p>
                         <div class="mt-4 pt-3 border-t border-gray-100 flex justify-between items-end">
                             <div>
                                 <span class="text-[10px] text-gray-400 font-bold uppercase block">Venda</span>
@@ -180,9 +176,9 @@
                     </div>
                 </div>
                 <div class="px-5 pb-5">
-                    <a href="https://wa.me/5511989656941?text=Olá! Tenho interesse na Ref. 18." target="_blank" class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
-                        Ver Detalhes no WhatsApp <i class="fab fa-whatsapp text-km-verdeZap"></i>
-                    </a>
+                    <button class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
+                        Ver Detalhes <i class="fas fa-chevron-right text-[10px]"></i>
+                    </button>
                 </div>
             </div>
 
@@ -209,9 +205,9 @@
                     </div>
                 </div>
                 <div class="px-5 pb-5">
-                    <a href="https://wa.me/5511989656941?text=Olá! Tenho interesse na Ref. 17." target="_blank" class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
-                        Ver Detalhes no WhatsApp <i class="fab fa-whatsapp text-km-verdeZap"></i>
-                    </a>
+                    <button class="w-full bg-gray-100 hover:bg-gray-900 hover:text-white text-gray-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
+                        Ver Detalhes <i class="fas fa-chevron-right text-[10px]"></i>
+                    </button>
                 </div>
             </div>
 
@@ -225,15 +221,15 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
             <div>
                 <strong class="text-xs uppercase tracking-widest text-gray-400 block mb-2">Redes sociais</strong>
-                <a href="https://www.instagram.com/kellimartinsimoveis/" target="_blank" class="text-pink-400 hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-pink-400 hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
             </div>
             <div>
                 <strong class="text-xs uppercase tracking-widest text-gray-400 block mb-1">WhatsApp</strong>
-                <a href="https://wa.me/5511989656941" class="text-sm font-bold text-white hover:text-km-douradoOriginal">(11) 98965-6941</a>
+                <span class="text-sm font-bold text-white">(00) 00000-0000</span>
             </div>
             <div>
                 <strong class="text-xs uppercase tracking-widest text-gray-400 block mb-1">Ligue agora</strong>
-                <a href="tel:11989656941" class="text-sm font-bold text-white hover:text-km-douradoOriginal">(11) 98965-6941</a>
+                <span class="text-sm font-bold text-white">(00) 00000-0000</span>
             </div>
             <div>
                 <strong class="text-xs uppercase tracking-widest text-gray-400 block mb-1">Fale com um</strong>
@@ -242,8 +238,8 @@
         </div>
 
         <div class="max-w-7xl mx-auto border-t border-gray-800 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-widest gap-2">
-            <span>© 2026 Todos os direitos reservados. Kelli Martins - Imobiliária.</span>
-            <span>Redesign por <strong class="text-km-douradoOriginal">eve Design</strong></span>
+            <span>© 2026 Todos os direitos reservados. Imobiliária.</span>
+            <span>Desenvolvido por sua Agência</span>
         </div>
     </footer>
 
@@ -259,13 +255,13 @@
             <i class="fas fa-building text-lg mb-1"></i>
             <span class="text-[9px] font-bold uppercase tracking-widest">Imóveis</span>
         </a>
-        <a href="https://wa.me/5511989656941" target="_blank" class="flex flex-col items-center text-gray-900 w-16 relative">
+        <a href="#" class="flex flex-col items-center text-gray-900 w-16 relative">
             <div class="bg-gray-900 text-white w-12 h-12 rounded-full flex items-center justify-center absolute bottom-4 shadow-lg border-2 border-white">
                 <i class="fab fa-whatsapp text-2xl text-km-douradoOriginal"></i>
             </div>
             <span class="text-[9px] font-bold uppercase tracking-widest mt-7">Contato</span>
         </a>
-        <a href="mailto:kellimartins0703@gmail.com" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-douradoOriginal w-16">
+        <a href="#" class="flex flex-col items-center p-2 text-gray-400 hover:text-km-douradoOriginal w-16">
             <i class="far fa-envelope text-lg mb-1"></i>
             <span class="text-[9px] font-bold uppercase tracking-widest">E-mail</span>
         </a>
