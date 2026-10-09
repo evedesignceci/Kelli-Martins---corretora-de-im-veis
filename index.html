@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Imóveis Exclusivos | Consultoria Imobiliária</title>
+    <title>(Seu Nome Aqui) | Consultoria Imobiliária</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,10 +22,9 @@
                     },
                     colors: {
                         brand: {
-                            gold: '#C5A880',
-                            dark: '#111315',
-                            soft: '#F9F8F6',
-                            muted: '#6E7278'
+                            gold: '#B89758',
+                            dark: '#16181B',
+                            softGray: '#F8F9FA'
                         }
                     }
                 }
@@ -33,160 +32,590 @@
         }
     </script>
 </head>
-<body class="bg-[#FCFCFC] text-[#22252A] font-sans antialiased">
+<body class="bg-[#FBFBFC] text-[#202327] font-sans antialiased selection:bg-brand-gold selection:text-white pb-20 sm:pb-0">
 
-    <!-- Topo / Header -->
-    <header class="w-full bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <a href="#" class="text-xl tracking-wider font-semibold uppercase text-brand-dark font-serif">
-                    [Seu Nome / Sua Marca]
-                </a>
-                <span class="hidden md:inline-block h-4 w-[1px] bg-gray-300"></span>
-                <span class="text-xs text-brand-muted tracking-widest uppercase">[CRECI 00.000-F]</span>
+    <!-- Container Geral -->
+    <div class="w-full">
+        
+        <!-- Header -->
+        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+                
+                <!-- Logo & CRECI com (Seu Nome Aqui) -->
+                <div class="flex items-center gap-4">
+                    <a href="#" onclick="voltarParaVitrine(); return false;" class="flex items-center">
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider uppercase text-brand-dark pr-4 border-r border-gray-200">
+                            (Seu Nome Aqui)
+                        </span>
+                        <span class="text-xs text-gray-400 font-medium ml-4 tracking-widest uppercase">
+                            (CRECI 00.000-F)
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Botão Menu Mobile -->
+                <button class="sm:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none" onclick="viewMenu();" aria-label="Abrir Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Navegação -->
+                <nav class="menu">
+                    <ul class="fixed sm:relative top-20 sm:top-0 left-0 bg-white sm:bg-transparent w-full sm:w-auto h-screen sm:h-auto z-40 hidden sm:flex flex-col sm:flex-row items-center gap-2 sm:gap-8 p-6 sm:p-0 shadow-lg sm:shadow-none border-t sm:border-t-0 border-gray-100">
+                        <li><a href="/sobreNos" class="text-gray-600 hover:text-black text-base sm:text-sm font-medium tracking-wide py-2 transition-colors">Sobre nós</a></li>
+                        <li><a href="/imoveis" class="text-gray-600 hover:text-black text-base sm:text-sm font-medium tracking-wide py-2 transition-colors">Imóveis</a></li>
+                        <li><a href="#" onclick="alert('Em breve!'); return false;" class="text-gray-600 hover:text-black text-base sm:text-sm font-medium tracking-wide py-2 transition-colors">Imóveis comercializados</a></li>
+                        <li><a href="#" onclick="alert('Em breve!'); return false;" class="text-gray-600 hover:text-black text-base sm:text-sm font-medium tracking-wide py-2 transition-colors">Fique por dentro!</a></li>
+                        <li class="mt-4 sm:mt-0">
+                            <a href="mailto:(Seu Email Aqui)" class="inline-flex items-center px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-white bg-brand-dark hover:bg-neutral-800 transition-all shadow-sm">
+                                Fale conosco
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Banner com Busca Aprimorada (Por Código ou Nome/Tipo como 'casa', 'cobertura' etc.) -->
+        <section class="relative bg-gradient-to-b from-gray-100 to-[#FBFBFC] pt-12 sm:pt-16 pb-16 sm:pb-24 px-4 border-b border-gray-200/60">
+            <div class="max-w-4xl mx-auto text-center mb-8">
+                <span class="text-xs font-semibold tracking-[0.25em] text-brand-gold uppercase block mb-2">Curadoria Exclusiva</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-brand-dark font-normal tracking-tight">
+                    Encontre seu imóvel ideal
+                </h1>
             </div>
 
-            <!-- Menu Desktop -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-                <a href="#" class="hover:text-black transition-colors">Sobre</a>
-                <a href="#" class="hover:text-black transition-colors">Imóveis</a>
-                <a href="#" class="hover:text-black transition-colors">Coleção Exclusiva</a>
-                <a href="#" class="hover:text-black transition-colors">Blog & Tendências</a>
-            </nav>
+            <!-- Caixa de Busca -->
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl shadow-gray-200/70 p-4 sm:p-6 border border-gray-100">
+                <form id="formBusca" onsubmit="realizarBusca(event);" class="w-full">
+                    <input type="hidden" name="_token" value="j6sZ4SEkbgIK161Qb2oE8rCMWu4psRjFQAISfKZd" autocomplete="off">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative">
+                            <input type="text" id="campoBusca" name="codigo" placeholder="Digite código ou nome (ex: casa, cobertura, itaim)..." class="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 text-sm focus:outline-none focus:ring-1 focus:ring-brand-gold focus:border-brand-gold transition-all">
+                        </div>
 
-            <div>
-                <a href="#" class="inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-brand-dark rounded-full hover:bg-neutral-800 transition-all shadow-sm">
-                    Fale Conosco
-                </a>
-            </div>
-        </div>
-    </header>
+                        <div class="relative">
+                            <select id="campoTipo" name="tipo_negocio" class="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-brand-gold focus:border-brand-gold transition-all cursor-pointer">
+                                <option value="">Todos os tipos de negócio</option>
+                                <option value="venda">Venda</option>
+                                <option value="locacao">Locação</option>
+                            </select>
+                        </div>
 
-    <!-- Hero / Busca -->
-    <section class="relative pt-16 pb-20 bg-brand-soft border-b border-gray-100">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-semibold mb-3 block">Curadoria Imobiliária</span>
-            <h1 class="text-3xl md:text-5xl font-serif text-brand-dark leading-tight mb-4">
-                Encontre o espaço ideal para o seu próximo capítulo
-            </h1>
-            <p class="text-brand-muted text-sm md:text-base max-w-2xl mx-auto mb-10 font-light">
-                Seleção dos endereços mais desejados com atendimento discreto, personalizado e estratégico.
-            </p>
-
-            <!-- Card de Filtros -->
-            <div class="bg-white p-4 md:p-5 rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 max-w-4xl mx-auto">
-                <form class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <div class="relative">
-                        <input type="text" placeholder="Código ou referência..." class="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 text-sm focus:outline-none focus:border-brand-dark transition-all">
-                    </div>
-                    <div class="relative">
-                        <select class="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-600 focus:outline-none focus:border-brand-dark transition-all">
-                            <option value="">Finalidade (Venda ou Locação)</option>
-                            <option value="venda">Venda</option>
-                            <option value="locacao">Locação</option>
-                        </select>
-                    </div>
-                    <div>
-                        <button type="button" class="w-full h-12 px-6 rounded-xl bg-brand-dark text-white font-medium text-sm hover:bg-neutral-800 transition-all shadow-md">
-                            Explorar Imóveis
-                        </button>
+                        <div>
+                            <button type="submit" class="w-full h-12 px-6 rounded-xl bg-brand-dark text-white font-medium text-sm hover:bg-neutral-800 transition-all flex items-center justify-center gap-2 shadow-sm cursor-pointer">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                <span>Buscar Imóveis</span>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Vitrine de Imóveis em Destaque -->
-    <main class="max-w-7xl mx-auto px-6 py-20">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-                <span class="text-xs uppercase tracking-widest text-brand-gold font-semibold mb-1 block">Oportunidades</span>
-                <h2 class="text-2xl md:text-3xl font-serif text-brand-dark">Imóveis em Destaque</h2>
+        <!-- SESSÃO DE DETALHES DO IMÓVEL (Abre com fotos, informações e valores ao clicar) -->
+        <section id="sessaoDetalhesImovel" class="hidden bg-white border-b border-gray-200/80 transition-all">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+                <!-- Botão de Voltar -->
+                <button onclick="voltarParaVitrine();" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-gray-500 hover:text-black mb-6 transition-colors cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    <span>Voltar para todos os imóveis</span>
+                </button>
+
+                <!-- Galeria Panorâmica com 3 fotos (idêntica à estrutura original) -->
+                <div class="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-1 bg-black">
+                        <div class="h-64 sm:h-80 md:h-96 overflow-hidden">
+                            <img id="detalheFoto1" src="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="h-64 sm:h-80 md:h-96 overflow-hidden hidden md:block">
+                            <img id="detalheFoto2" src="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="h-64 sm:h-80 md:h-96 overflow-hidden hidden md:block">
+                            <img id="detalheFoto3" src="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Faixa preta com contagem de fotos -->
+                    <div class="bg-black/90 backdrop-blur-sm text-white px-6 py-3 flex items-center justify-between text-xs tracking-wider uppercase font-medium">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span id="detalheQtdFotos">37 fotos disponíveis</span>
+                        </div>
+                        <span id="detalheRefBadge" class="text-brand-gold font-bold">Cód. --</span>
+                    </div>
+                </div>
+
+                <!-- Bloco de Valores & Ações de Contato -->
+                <div class="mt-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-gray-100">
+                    <div class="flex flex-wrap items-center gap-8">
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold block" id="detalheTipoNegocioLabel">Venda</span>
+                            <strong class="text-2xl sm:text-3xl font-serif text-brand-dark" id="detalheValorPrincipal">R$ 0,00</strong>
+                        </div>
+                        <div class="pl-6 border-l border-gray-200">
+                            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold block">Condomínio</span>
+                            <strong class="text-lg text-gray-700" id="detalheCondominio">R$ 0,00</strong>
+                        </div>
+                        <div class="pl-6 border-l border-gray-200">
+                            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold block">IPTU</span>
+                            <strong class="text-lg text-gray-700" id="detalheIPTU">R$ 0,00</strong>
+                        </div>
+                    </div>
+
+                    <!-- Ações -->
+                    <div class="flex items-center gap-3">
+                        <a id="detalheBtnWhats" href="#" target="_blank" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+                            <img src="https://kellimartins.com.br/assets/img/icones/whatsapp.png" class="w-4 h-4 brightness-200">
+                            <span>WhatsApp</span>
+                        </a>
+                        <button onclick="compartilharImovel();" class="inline-flex items-center justify-center gap-2 px-5 py-3 border border-gray-200 hover:border-gray-400 text-gray-700 rounded-xl text-sm font-semibold transition-all bg-white cursor-pointer">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+                            <span>Compartilhar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Detalhes Técnicos (Metragem, Dormitórios, Banheiros e Vagas) -->
+                <div class="py-6 border-b border-gray-100 flex flex-wrap gap-8 text-sm text-gray-600">
+                    <div class="flex items-center gap-2">
+                        <img src="https://kellimartins.com.br/assets/img/icones/metric.svg" class="w-5 h-5 opacity-60">
+                        <span class="font-bold text-gray-900" id="detalheMetros">0 m²</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <img src="https://kellimartins.com.br/assets/img/icones/bed.svg" class="w-5 h-5 opacity-60">
+                        <span class="font-bold text-gray-900" id="detalheDorms">0 dorms</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <img src="https://kellimartins.com.br/assets/img/icones/bathroom.svg" class="w-5 h-5 opacity-60">
+                        <span class="font-bold text-gray-900" id="detalheBanh">0 banheiros</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+                        <span class="font-bold text-gray-900" id="detalheVagas">2 vagas</span>
+                    </div>
+                </div>
+
+                <!-- Descrição Completa -->
+                <div class="py-8">
+                    <h3 class="text-xs uppercase tracking-widest text-brand-gold font-bold mb-3">Sobre esta propriedade</h3>
+                    <h2 class="text-xl sm:text-2xl font-serif text-brand-dark mb-4" id="detalheTitulo">--</h2>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base max-w-4xl" id="detalheDescricao">--</p>
+                </div>
             </div>
-            <a href="#" class="text-xs uppercase tracking-wider font-semibold text-brand-muted hover:text-black mt-3 md:mt-0 transition-colors">
-                Ver todo o portfólio &rarr;
-            </a>
-        </div>
+        </section>
 
-        <!-- Grade de Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Vitrine de Imóveis em Destaque -->
+        <main id="secaoVitrine" class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
             
-            <!-- Card Exemplo -->
-            <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-                <div class="relative overflow-hidden aspect-[4/3]">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Residência" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-dark text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
-                        Ref.: [000]
-                    </span>
-                    <span class="absolute bottom-4 left-4 bg-brand-dark/85 backdrop-blur-sm text-white text-[11px] uppercase tracking-wider px-3 py-1 rounded-md">
-                        [Bairro Nobre]
-                    </span>
-                </div>
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-widest text-brand-gold font-semibold block mb-2">Portfólio Selecionado</span>
+                <h2 class="text-2xl sm:text-3xl font-serif text-brand-dark font-normal">
+                    Imóveis em destaque
+                </h2>
+                <div class="w-12 h-[2px] bg-brand-gold mx-auto mt-4"></div>
+            </div>
 
-                <div class="p-6 flex-1 flex flex-col justify-between">
+            <!-- Grade Dinâmica de Imóveis -->
+            <div id="gradeImoveis" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Preenchido via JavaScript com dados ricos e imagens de alta resolução -->
+            </div>
+        </main>
+
+        <!-- Barra de Contato Rápido e Rodapé Superior com (Seu Nome Aqui) -->
+        <section class="bg-brand-dark text-white py-12 border-t border-neutral-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-center text-center md:text-left">
+                    
+                    <!-- Redes Sociais -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <span class="text-xs uppercase tracking-widest text-gray-400 font-medium mb-3">Redes Sociais</span>
+                        <a href="https://instagram.com/" target="_blank" class="flex items-center gap-2 hover:text-brand-gold transition-colors">
+                            <img src="https://kellimartins.com.br/assets/img/icones/instagram.png" alt="Instagram" class="w-5 h-5 brightness-200">
+                            <span class="text-sm font-medium">Instagram</span>
+                        </a>
+                    </div>
+
+                    <!-- WhatsApp -->
                     <div>
-                        <div class="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-1">[Finalidade: Venda]</div>
-                        <h3 class="text-lg font-serif font-medium text-brand-dark group-hover:text-neutral-600 transition-colors mb-2 line-clamp-2">
-                            [Título descritivo da propriedade com vista privilegiada e arquitetura singular]
-                        </h3>
-                        <div class="text-xl font-semibold text-brand-dark mb-4">
-                            R$ [0.000.000,00]
-                        </div>
+                        <a href="https://api.whatsapp.com/send?phone=(Seu Telefone Aqui)" target="_blank" class="flex items-center justify-center md:justify-start gap-3 group">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
+                                <img src="https://kellimartins.com.br/assets/img/icones/whatsapp.png" alt="WhatsApp" class="w-5 h-5">
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 font-medium">WhatsApp Direto</div>
+                                <strong class="text-sm text-white group-hover:text-brand-gold transition-colors">(Seu Telefone Aqui)</strong>
+                            </div>
+                        </a>
                     </div>
 
-                    <!-- Métricas / Ícones do Imóvel -->
-                    <div class="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-brand-muted">
-                        <div class="flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 8V4m0 0h4M4 4l5 5m11-5v4m0-4h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-                            <span>[000] m²</span>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                            <span>[0] dorms</span>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
-                            <span>[0] vagas</span>
-                        </div>
+                    <!-- Telefone -->
+                    <div>
+                        <a href="tel:(Seu Telefone Aqui)" target="_blank" class="flex items-center justify-center md:justify-start gap-3 group">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
+                                <img src="https://kellimartins.com.br/assets/img/icones/phone.svg" alt="Telefone" class="w-5 h-5 brightness-200">
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 font-medium">Ligue Agora</div>
+                                <strong class="text-sm text-white group-hover:text-brand-gold transition-colors">(Seu Telefone Aqui)</strong>
+                            </div>
+                        </a>
                     </div>
+
+                    <!-- Fale com o Corretor -->
+                    <div>
+                        <a href="mailto:(Seu Email Aqui)" class="flex items-center justify-center md:justify-start gap-3 group">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
+                                <img src="https://kellimartins.com.br/assets/img/icones/corretor.svg" alt="Corretor" class="w-5 h-5 brightness-200">
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 font-medium">Fale com</div>
+                                <strong class="text-sm text-white group-hover:text-brand-gold transition-colors">(Seu Nome Aqui)</strong>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
-            </article>
-
-            <!-- Demais cards podem seguir a mesma estrutura de classe -->
-        </div>
-    </main>
-
-    <!-- Rodapé -->
-    <footer class="bg-brand-dark text-white pt-16 pb-12 border-t border-neutral-800">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-neutral-800/80">
-            <div class="md:col-span-1">
-                <span class="text-lg font-serif tracking-wider font-semibold uppercase block mb-3">[Sua Marca]</span>
-                <p class="text-xs text-neutral-400 leading-relaxed font-light">
-                    Intermediação e consultoria imobiliária personalizada nas regiões mais valorizadas.
-                </p>
             </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest font-semibold text-neutral-300 mb-4">Contato Direto</h4>
-                <p class="text-sm text-neutral-400 mb-1">WhatsApp: [00 00000-0000]</p>
-                <p class="text-sm text-neutral-400">E-mail: [contato@seudominio.com.br]</p>
-            </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest font-semibold text-neutral-300 mb-4">Presença Digital</h4>
-                <p class="text-sm text-neutral-400 mb-1">Instagram: [@seuusuario]</p>
-                <p class="text-sm text-neutral-400">Atendimento com hora marcada</p>
-            </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest font-semibold text-neutral-300 mb-4">Segurança</h4>
-                <p class="text-xs text-neutral-400">[CRECI 00.000-F]</p>
-                <p class="text-xs text-neutral-500 mt-2">Transações transparentes e assessoria completa.</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="max-w-7xl mx-auto px-6 pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-neutral-500">
-            <span>&copy; Todos os direitos reservados.</span>
-            <span class="mt-2 md:mt-0">Design & Estratégia Digital Imobiliária</span>
-        </div>
-    </footer>
+        <!-- Rodapé Final -->
+        <footer class="bg-black text-gray-400 py-6 border-t border-neutral-900 text-xs">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <div>&copy; 2026 (Seu Nome Aqui) - Imóveis. Todos os direitos reservados.</div>
+                <div>Consultoria Imobiliária &bull; (CRECI 00.000-F)</div>
+            </div>
+        </footer>
 
+    </div>
+
+    <!-- Barra Fixa Flutuante no Celular (WhatsApp e Ligar com 1 toque) -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-gray-200 p-3 flex gap-2">
+        <a href="https://api.whatsapp.com/send?phone=(Seu Telefone Aqui)" target="_blank" class="flex-1 bg-[#25D366] text-white py-3 rounded-xl font-semibold text-xs flex items-center justify-center gap-2 shadow-sm">
+            <img src="https://kellimartins.com.br/assets/img/icones/whatsapp.png" class="w-4 h-4 brightness-200">
+            <span>WhatsApp</span>
+        </a>
+        <a href="tel:(Seu Telefone Aqui)" class="flex-1 bg-brand-dark text-white py-3 rounded-xl font-semibold text-xs flex items-center justify-center gap-2 shadow-sm">
+            <img src="https://kellimartins.com.br/assets/img/icones/phone.svg" class="w-4 h-4 brightness-200">
+            <span>Ligue Agora</span>
+        </a>
+    </div>
+
+    <!-- Scripts e Dados dos Imóveis com Imagens Reais em Alta Resolução -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        // Catálogo completo com imagens reais e todos os dados técnicos originais
+        const imoveisData = [
+            {
+                id: 19,
+                codigo: "19",
+                palavrasChave: "itaim bibi apartamento cobertura vista piscina venda",
+                titulo: "ITAIM BIBI - O melhor valor por m² do bairro",
+                descricao: "OPORTUNIDADE! Apartamento com 200m² com vista deslumbrante! Espaçoso, com três dormitórios com armários embutidos sendo uma suíte e sala de TV com sacada. Lavabo. Copa e cozinha com armários, coifa e interligada à sala de jantar. Ampla área de serviço. Cabeamento pronto para ar condicionado. Duas vagas de garagem. Piscina com linda vista.",
+                tipo: "venda",
+                tipoLabel: "Venda",
+                valor: "R$ 3.400.000,00",
+                condominio: "R$ 4.000,00",
+                iptu: "R$ 1.000,00",
+                metros: "200 m²",
+                dorms: "3 dorms",
+                banheiros: "3 banheiros",
+                vagas: "2 vagas",
+                fotos: [
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?q=80&w=1200&auto=format&fit=crop"
+                ]
+            },
+            {
+                id: 18,
+                codigo: "18",
+                palavrasChave: "itaim bibi apartamento vista luz varanda venda",
+                titulo: "Itaim Bibi - Uma das melhores vistas do bairro em 122m²",
+                descricao: "Tenha uma das MELHORES vistas do bairro em 122m² em um apartamento aconchegante e com muita luminosidade natural. Living integrado, suíte master com closet e acabamentos de primeira linha.",
+                tipo: "venda",
+                tipoLabel: "Venda",
+                valor: "R$ 2.000.000,00",
+                condominio: "R$ 2.800,00",
+                iptu: "R$ 750,00",
+                metros: "122 m²",
+                dorms: "3 dorms",
+                banheiros: "2 banheiros",
+                vagas: "2 vagas",
+                fotos: [
+                    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop"
+                ]
+            },
+            {
+                id: 17,
+                codigo: "17",
+                palavrasChave: "itaim bibi apartamento conforto planta funcional venda",
+                titulo: "ITAIM BIBI - Conforto e praticidade em planta funcional",
+                descricao: "Conforto e praticidade! É o conceito desse apartamento muito bem localizado com planta funcional, 4 banheiros, living espaçoso e iluminação planejada.",
+                tipo: "venda",
+                tipoLabel: "Venda",
+                valor: "R$ 2.370.000,00",
+                condominio: "R$ 3.100,00",
+                iptu: "R$ 820,00",
+                metros: "120 m²",
+                dorms: "3 dorms",
+                banheiros: "4 banheiros",
+                vagas: "2 vagas",
+                fotos: [
+                    "https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?q=80&w=1200&auto=format&fit=crop"
+                ]
+            },
+            {
+                id: 15,
+                codigo: "15",
+                palavrasChave: "vila nova conceicao studio moderno aluguel locacao novo",
+                titulo: "VILA NOVA CONCEIÇÃO - Studio Novo e Exclusivo",
+                descricao: "Studio recém-entregue, nunca habitado, com marcenaria completa sob medida, varanda espaçosa e localização a poucos passos do Parque Ibirapuera.",
+                tipo: "locacao",
+                tipoLabel: "Aluguel",
+                valor: "R$ 4.800,00",
+                condominio: "R$ 680,00",
+                iptu: "R$ 210,00",
+                metros: "27 m²",
+                dorms: "1 dorm",
+                banheiros: "1 banheiro",
+                vagas: "1 vaga",
+                fotos: [
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop"
+                ]
+            },
+            {
+                id: 14,
+                codigo: "14",
+                palavrasChave: "itaim bibi apartamento reformado arquiteto venda",
+                titulo: "ITAIM BIBI - Reformadíssimo por Arquiteto",
+                descricao: "Apartamento de revista com projeto assinado, ambientes 100% integrados, marcenaria nobre e cozinha gourmet.",
+                tipo: "venda",
+                tipoLabel: "Venda",
+                valor: "R$ 1.490.000,00",
+                condominio: "R$ 1.850,00",
+                iptu: "R$ 450,00",
+                metros: "87 m²",
+                dorms: "2 dorms",
+                banheiros: "3 banheiros",
+                vagas: "2 vagas",
+                fotos: [
+                    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1200&auto=format&fit=crop"
+                ]
+            },
+            {
+                id: 13,
+                codigo: "13",
+                palavrasChave: "itaim bibi apartamento mobiliado moderno locacao aluguel",
+                titulo: "ITAIM BIBI - Mobiliado e Pronto para Morar",
+                descricao: "Totalmente mobiliado e equipado com eletrodomésticos premium, ar-condicionado em todos os ambientes e lazer completo no condomínio.",
+                tipo: "locacao",
+                tipoLabel: "Aluguel",
+                valor: "R$ 9.500,00",
+                condominio: "R$ 2.400,00",
+                iptu: "R$ 680,00",
+                metros: "115 m²",
+                dorms: "3 dorms",
+                banheiros: "2 banheiros",
+                vagas: "2 vagas",
+                fotos: [
+                    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop"
+                ]
+            },
+            {
+                id: 12,
+                codigo: "12",
+                palavrasChave: "itaim bibi edificio carpeaux apartamento alto padrao venda",
+                titulo: "ITAIM BIBI - Edifício Carpeaux - Clássico e Nobre",
+                descricao: "Um dos edifícios mais conceituados do bairro. Planta generosa de 107m², pé direito alto, suíte com hidromassagem e muita privacidade.",
+                tipo: "venda",
+                tipoLabel: "Venda",
+                valor: "R$ 2.650.000,00",
+                condominio: "R$ 3.200,00",
+                iptu: "R$ 890,00",
+                metros: "107 m²",
+                dorms: "3 dorms",
+                banheiros: "3 banheiros",
+                vagas: "2 vagas",
+                fotos: [
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1600566753104-685f4f24cb4d?q=80&w=1200&auto=format&fit=crop"
+                ]
+            },
+            {
+                id: 11,
+                codigo: "11",
+                palavrasChave: "itaim bibi cobertura duplex churrasqueira vista venda casa",
+                titulo: "ITAIM BIBI - Cobertura Duplex com Churrasqueira",
+                descricao: "Cobertura duplex de 70m² com terraço privativo, churrasqueira a carvão e linda vista para o skyline da cidade. Oportunidade única.",
+                tipo: "venda",
+                tipoLabel: "Venda",
+                valor: "R$ 1.200.000,00",
+                condominio: "R$ 1.700,00",
+                iptu: "R$ 380,00",
+                metros: "70 m²",
+                dorms: "2 dorms",
+                banheiros: "2 banheiros",
+                vagas: "2 vagas",
+                fotos: [
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1200&auto=format&fit=crop"
+                ]
+            }
+        ];
+
+        // Renderiza os cards na vitrine
+        function renderizarImoveis(lista) {
+            const container = document.getElementById('gradeImoveis');
+            container.innerHTML = '';
+
+            if (lista.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-gray-500">
+                        Nenhum imóvel encontrado para essa busca. Tente buscar por outros termos como <strong>apartamento</strong>, <strong>cobertura</strong>, <strong>casa</strong> ou <strong>itaim</strong>.
+                    </div>
+                `;
+                return;
+            }
+
+            lista.forEach(imovel => {
+                const card = `
+                    <div class="group cursor-pointer" onclick="abrirDetalhesImovel(${imovel.id});">
+                        <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                            <div class="relative overflow-hidden aspect-[4/3]">
+                                <img src="${imovel.fotos[0]}" alt="${imovel.titulo}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute bottom-3 left-3 bg-brand-dark/90 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider px-3 py-1 rounded-md">
+                                    Cód. ${imovel.codigo}
+                                </span>
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="text-[11px] uppercase tracking-wider font-semibold text-brand-gold mb-1">${imovel.tipoLabel}</div>
+                                    <h3 class="text-sm font-medium text-gray-800 line-clamp-2 min-h-[2.5rem]">
+                                        ${imovel.titulo}
+                                    </h3>
+                                    <div class="mt-3 text-lg font-bold text-brand-dark">
+                                        ${imovel.valor}
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 pt-4 mt-4 border-t border-gray-100 text-xs text-gray-500">
+                                    <div class="flex items-center gap-1.5 font-medium">
+                                        <img src="https://kellimartins.com.br/assets/img/icones/metric.svg" class="w-3.5 h-3.5 opacity-60">
+                                        <span>${imovel.metros}</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 font-medium">
+                                        <img src="https://kellimartins.com.br/assets/img/icones/bed.svg" class="w-3.5 h-3.5 opacity-60">
+                                        <span>${imovel.dorms}</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 font-medium">
+                                        <img src="https://kellimartins.com.br/assets/img/icones/bathroom.svg" class="w-3.5 h-3.5 opacity-60">
+                                        <span>${imovel.banheiros}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        // Abre a sessão completa de fotos e detalhes do imóvel selecionado
+        function abrirDetalhesImovel(id) {
+            const imovel = imoveisData.find(item => item.id === id);
+            if (!imovel) return;
+
+            document.getElementById('detalheFoto1').src = imovel.fotos[0];
+            document.getElementById('detalheFoto2').src = imovel.fotos[1];
+            document.getElementById('detalheFoto3').src = imovel.fotos[2];
+
+            document.getElementById('detalheRefBadge').innerText = 'Cód. ' + imovel.codigo;
+            document.getElementById('detalheTipoNegocioLabel').innerText = imovel.tipoLabel;
+            document.getElementById('detalheValorPrincipal').innerText = imovel.valor;
+            document.getElementById('detalheCondominio').innerText = imovel.condominio;
+            document.getElementById('detalheIPTU').innerText = imovel.iptu;
+
+            document.getElementById('detalheMetros').innerText = imovel.metros;
+            document.getElementById('detalheDorms').innerText = imovel.dorms;
+            document.getElementById('detalheBanh').innerText = imovel.banheiros;
+            document.getElementById('detalheVagas').innerText = imovel.vagas;
+
+            document.getElementById('detalheTitulo').innerText = imovel.titulo;
+            document.getElementById('detalheDescricao').innerText = imovel.descricao;
+
+            // Link WhatsApp direto com mensagem personalizada
+            const mensagem = encodeURIComponent(`Olá (Seu Nome Aqui)! Gostaria de mais informações sobre o imóvel Cód. ${imovel.codigo}: ${imovel.titulo}`);
+            document.getElementById('detalheBtnWhats').href = `https://api.whatsapp.com/send?phone=(Seu Telefone Aqui)&text=${mensagem}`;
+
+            // Mostra a sessão e rola suavemente até ela
+            const sessao = document.getElementById('sessaoDetalhesImovel');
+            sessao.classList.remove('hidden');
+            sessao.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function voltarParaVitrine() {
+            document.getElementById('sessaoDetalhesImovel').classList.add('hidden');
+            document.getElementById('secaoVitrine').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Sistema de busca por código OU por termos/nomes (casa, cobertura, apartamento etc.)
+        function realizarBusca(e) {
+            e.preventDefault();
+            const termo = document.getElementById('campoBusca').value.trim().toLowerCase();
+            const tipo = document.getElementById('campoTipo').value;
+
+            const filtrados = imoveisData.filter(imovel => {
+                const matchTipo = tipo === '' || imovel.tipo === tipo;
+                const matchTermo = termo === '' || 
+                    imovel.codigo.toLowerCase().includes(termo) || 
+                    imovel.titulo.toLowerCase().includes(termo) || 
+                    imovel.descricao.toLowerCase().includes(termo) ||
+                    imovel.palavrasChave.toLowerCase().includes(termo);
+
+                return matchTipo && matchTermo;
+            });
+
+            // Fecha a sessão de detalhes se estiver aberta e mostra os resultados
+            document.getElementById('sessaoDetalhesImovel').classList.add('hidden');
+            renderizarImoveis(filtrados);
+            document.getElementById('secaoVitrine').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function compartilharImovel() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '(Seu Nome Aqui) - Imóveis',
+                    text: 'Confira este imóvel exclusivo:',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link copiado para a área de transferência!');
+            }
+        }
+
+        function viewMenu(){
+            $('.menu ul').toggleClass('hidden');
+        }
+
+        // Inicializa a vitrine ao carregar
+        $(document).ready(function() {
+            renderizarImoveis(imoveisData);
+        });
+    </script>
 </body>
 </html>
